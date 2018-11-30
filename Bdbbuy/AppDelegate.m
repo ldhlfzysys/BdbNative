@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "HomePageViewController.h"
+#import "BdbTabBarViewController.h"
+#import "BdbWebViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,13 +21,54 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UIWindow *window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    BdbTabBarViewController *tabbar = [[BdbTabBarViewController alloc] init];
+    
+    //首页
     HomePageViewController *homeVC = [[HomePageViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    window.rootViewController = nav;
+    homeVC.title = @"首页";
+    homeVC.tabBarItem = [self tabBarName:@"首页" image:@"home" selected:@"home_highlight"];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    
+    //分类
+    BdbWebViewController *category = [[BdbWebViewController alloc] init];
+    category.baseUrl = @"https://m.bdbbuy.com/category";
+    category.title = @"分类";
+    category.tabBarItem = [self tabBarName:@"分类" image:@"category" selected:@"category_highlight"];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:category];
+    
+    
+    //购物车
+    BdbWebViewController *cart = [[BdbWebViewController alloc] init];
+    cart.baseUrl = @"https://m.bdbbuy.com/cart";
+    cart.title = @"购物车";
+    cart.tabBarItem = [self tabBarName:@"购物车" image:@"cart" selected:@"cart_highlight"];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:cart];
+    
+    //我
+    BdbWebViewController *user = [[BdbWebViewController alloc] init];
+    user.baseUrl = @"https://m.bdbbuy.com/user";
+    user.title = @"我";
+    user.tabBarItem = [self tabBarName:@"我" image:@"user" selected:@"user_highlight"];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:user];
+    
+    tabbar.viewControllers = @[nav1,nav2,nav3,nav4];
+    
+    window.rootViewController = tabbar;
     
     self.window = window;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (UITabBarItem *)tabBarName:(NSString *)title image:(NSString *)image selected:(NSString *)selected
+{
+    UIImage *icon = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectImage = [[UIImage imageNamed:selected] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabbarItem = [[UITabBarItem alloc] initWithTitle:title image:icon selectedImage:selectImage];
+    [tabbarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:218 / 255.0 green:71 / 255.0 blue:68 / 255.0 alpha:1]} forState:UIControlStateSelected];
+    [tabbarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:133 / 255.0 green:133 / 255.0 blue:133 / 255.0 alpha:1]} forState:UIControlStateNormal];
+    return tabbarItem;
 }
 
 

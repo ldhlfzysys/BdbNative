@@ -1,30 +1,22 @@
 //
-//  BaseViewController.m
+//  BdbTabBarViewController.m
 //  Bdbbuy
 //
-//  Created by weixi1 on 2018/11/28.
-//  Copyright © 2018年 bdbbuy. All rights reserved.
+//  Created by donghuan1 on 2018/11/30.
+//  Copyright © 2018 bdbbuy. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BdbTabBarViewController.h"
 
-@interface BaseViewController ()
+@interface BdbTabBarViewController ()
 
 @end
 
-@implementation BaseViewController
-
+@implementation BdbTabBarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
