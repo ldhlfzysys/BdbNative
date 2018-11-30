@@ -30,6 +30,8 @@
 		DE3350DD21B0CFF500AED4F4 /* cart_highlight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3350D121B0CFF400AED4F4 /* cart_highlight@3x.png */; };
 		DE3350DE21B0CFF500AED4F4 /* category_highlight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3350D221B0CFF400AED4F4 /* category_highlight@3x.png */; };
 		F52E6EB81EF9151EAA831135 /* Pods_Bdbbuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798CC941E14010EC0892DF4A /* Pods_Bdbbuy.framework */; };
+		FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF4A21B107E400BB78AE /* BdbNetwork.m */; };
+		FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF5021B1718500BB78AE /* HomeDataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,10 @@
 		DE3350D021B0CFF400AED4F4 /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
 		DE3350D121B0CFF400AED4F4 /* cart_highlight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_highlight@3x.png"; sourceTree = "<group>"; };
 		DE3350D221B0CFF400AED4F4 /* category_highlight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_highlight@3x.png"; sourceTree = "<group>"; };
+		FC54EF4921B107E400BB78AE /* BdbNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbNetwork.h; sourceTree = "<group>"; };
+		FC54EF4A21B107E400BB78AE /* BdbNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbNetwork.m; sourceTree = "<group>"; };
+		FC54EF4F21B1718500BB78AE /* HomeDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDataProvider.h; sourceTree = "<group>"; };
+		FC54EF5021B1718500BB78AE /* HomeDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDataProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,16 +97,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8B2019B421AE11CD002F95FD /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		8B2019B521AE1203002F95FD /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				FC54EF4E21B170FA00BB78AE /* DataManager */,
 				8B2019B621AE12B2002F95FD /* Controller */,
 			);
 			path = HomePage;
@@ -155,16 +155,11 @@
 		8BAB53EB21AD80A600AC813A /* Bdbbuy */ = {
 			isa = PBXGroup;
 			children = (
-				DE3350C621B0CFF400AED4F4 /* resources */,
+				FC54EF4D21B10BDB00BB78AE /* SupportFile */,
+				FC54EF4821B107CB00BB78AE /* Network */,
 				DE3350BF21B0C9B500AED4F4 /* Tabbar */,
 				8B2019B721AE12EB002F95FD /* Base */,
 				8B2019B521AE1203002F95FD /* HomePage */,
-				8B2019B421AE11CD002F95FD /* Network */,
-				8BAB53EC21AD80A600AC813A /* AppDelegate.h */,
-				8BAB53ED21AD80A600AC813A /* AppDelegate.m */,
-				8BAB53F521AD80A600AC813A /* Assets.xcassets */,
-				8BAB53F721AD80A600AC813A /* LaunchScreen.storyboard */,
-				8BAB53FA21AD80A600AC813A /* Info.plist */,
 				8BAB53FB21AD80A600AC813A /* main.m */,
 			);
 			path = Bdbbuy;
@@ -205,6 +200,37 @@
 				32081EAB9A5A5C291602C2E4 /* Pods-Bdbbuy.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC54EF4821B107CB00BB78AE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF4921B107E400BB78AE /* BdbNetwork.h */,
+				FC54EF4A21B107E400BB78AE /* BdbNetwork.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FC54EF4D21B10BDB00BB78AE /* SupportFile */ = {
+			isa = PBXGroup;
+			children = (
+				DE3350C621B0CFF400AED4F4 /* resources */,
+				8BAB53EC21AD80A600AC813A /* AppDelegate.h */,
+				8BAB53ED21AD80A600AC813A /* AppDelegate.m */,
+				8BAB53F521AD80A600AC813A /* Assets.xcassets */,
+				8BAB53F721AD80A600AC813A /* LaunchScreen.storyboard */,
+				8BAB53FA21AD80A600AC813A /* Info.plist */,
+			);
+			name = SupportFile;
+			sourceTree = "<group>";
+		};
+		FC54EF4E21B170FA00BB78AE /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF4F21B1718500BB78AE /* HomeDataProvider.h */,
+				FC54EF5021B1718500BB78AE /* HomeDataProvider.m */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +368,8 @@
 			files = (
 				DE3350C521B0CA8400AED4F4 /* BdbWebViewController.m in Sources */,
 				DE3350C221B0CA1900AED4F4 /* BdbTabBarViewController.m in Sources */,
+				FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */,
+				FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */,
 				8B2019BB21AE130C002F95FD /* BaseViewController.m in Sources */,
 				8B2019BE21AE1320002F95FD /* HomePageViewController.m in Sources */,
 				8BAB53FC21AD80A600AC813A /* main.m in Sources */,

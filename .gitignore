@@ -1,4 +1,7 @@
 Pods/
+Podfile.lock
 *.orig
 xcuserdata
 Bdbbuy.xcworkspace
+Bdbbuy.xcodeproj/project.xcworkspace/xcshareddata
+Bdbbuy.xcodeproj/xcshareddata
