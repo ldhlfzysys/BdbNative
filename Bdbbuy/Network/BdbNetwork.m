@@ -80,10 +80,7 @@ static BdbNetwork *network = nil;
 
 - (void)sendPostRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * resultDic, NSError * error))completion
 {
-    //    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
-# warning for test
-    NSString *testBaseURL = @"http://test.dashboard.client.weibo.cn/";
-    NSString *URL = [NSString stringWithFormat:@"%@%@", testBaseURL, path];
+    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
     NSLog(@"发起Post请求地址:%@", URL);
     [[AFHTTPSessionManager manager] POST:URL parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (completion) {
