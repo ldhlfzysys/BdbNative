@@ -10,7 +10,6 @@
 		8B2019AF21AE0CAD002F95FD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2019B121AE0CAD002F95FD /* AFNetworking.framework */; };
 		8B2019B021AE0CAD002F95FD /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2019B221AE0CAD002F95FD /* SDWebImage.framework */; };
 		8B2019BB21AE130C002F95FD /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2019BA21AE130C002F95FD /* BaseViewController.m */; };
-		8B2019BE21AE1320002F95FD /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2019BD21AE1320002F95FD /* HomePageViewController.m */; };
 		8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB53ED21AD80A600AC813A /* AppDelegate.m */; };
 		8BAB53F621AD80A600AC813A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB53F521AD80A600AC813A /* Assets.xcassets */; };
 		8BAB53F921AD80A600AC813A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB53F721AD80A600AC813A /* LaunchScreen.storyboard */; };
@@ -32,6 +31,14 @@
 		F52E6EB81EF9151EAA831135 /* Pods_Bdbbuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798CC941E14010EC0892DF4A /* Pods_Bdbbuy.framework */; };
 		FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF4A21B107E400BB78AE /* BdbNetwork.m */; };
 		FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF5021B1718500BB78AE /* HomeDataProvider.m */; };
+		FC54EF5621B26A2B00BB78AE /* BdbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF5521B26A2B00BB78AE /* BdbTableViewController.m */; };
+		FC54EF5D21B26AF000BB78AE /* BdbTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF5C21B26AF000BB78AE /* BdbTableView.m */; };
+		FC54EF6321B271FB00BB78AE /* UIDevice+BdbHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6221B271FB00BB78AE /* UIDevice+BdbHelper.m */; };
+		FC54EF6921B2808F00BB78AE /* BdbCardListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6821B2808F00BB78AE /* BdbCardListTableViewController.m */; };
+		FC54EF6D21B284BF00BB78AE /* BdbCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6C21B284BF00BB78AE /* BdbCard.m */; };
+		FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */; };
+		FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */; };
+		FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +48,6 @@
 		8B2019B221AE0CAD002F95FD /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2019B921AE130C002F95FD /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8B2019BA21AE130C002F95FD /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		8B2019BC21AE1320002F95FD /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
-		8B2019BD21AE1320002F95FD /* HomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		8BAB53E921AD80A600AC813A /* Bdbbuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bdbbuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAB53EC21AD80A600AC813A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8BAB53ED21AD80A600AC813A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,6 +76,23 @@
 		FC54EF4A21B107E400BB78AE /* BdbNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbNetwork.m; sourceTree = "<group>"; };
 		FC54EF4F21B1718500BB78AE /* HomeDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDataProvider.h; sourceTree = "<group>"; };
 		FC54EF5021B1718500BB78AE /* HomeDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDataProvider.m; sourceTree = "<group>"; };
+		FC54EF5421B26A2B00BB78AE /* BdbTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbTableViewController.h; sourceTree = "<group>"; };
+		FC54EF5521B26A2B00BB78AE /* BdbTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTableViewController.m; sourceTree = "<group>"; };
+		FC54EF5B21B26AF000BB78AE /* BdbTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbTableView.h; sourceTree = "<group>"; };
+		FC54EF5C21B26AF000BB78AE /* BdbTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTableView.m; sourceTree = "<group>"; };
+		FC54EF5F21B270FE00BB78AE /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		FC54EF6121B271FB00BB78AE /* UIDevice+BdbHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+BdbHelper.h"; sourceTree = "<group>"; };
+		FC54EF6221B271FB00BB78AE /* UIDevice+BdbHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+BdbHelper.m"; sourceTree = "<group>"; };
+		FC54EF6721B2808F00BB78AE /* BdbCardListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCardListTableViewController.h; sourceTree = "<group>"; };
+		FC54EF6821B2808F00BB78AE /* BdbCardListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCardListTableViewController.m; sourceTree = "<group>"; };
+		FC54EF6B21B284BF00BB78AE /* BdbCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCard.h; sourceTree = "<group>"; };
+		FC54EF6C21B284BF00BB78AE /* BdbCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCard.m; sourceTree = "<group>"; };
+		FC54EF6E21B2866900BB78AE /* HomePageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageTableViewController.h; sourceTree = "<group>"; };
+		FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
+		FC54EF7221B2873300BB78AE /* BdbTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbTableViewCell.h; sourceTree = "<group>"; };
+		FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTableViewCell.m; sourceTree = "<group>"; };
+		FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeGoodsCell.h; sourceTree = "<group>"; };
+		FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeGoodsCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +122,7 @@
 		8B2019B521AE1203002F95FD /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				FC54EF7121B2870200BB78AE /* View */,
 				FC54EF4E21B170FA00BB78AE /* DataManager */,
 				8B2019B621AE12B2002F95FD /* Controller */,
 			);
@@ -109,8 +132,8 @@
 		8B2019B621AE12B2002F95FD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8B2019BC21AE1320002F95FD /* HomePageViewController.h */,
-				8B2019BD21AE1320002F95FD /* HomePageViewController.m */,
+				FC54EF6E21B2866900BB78AE /* HomePageTableViewController.h */,
+				FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -118,6 +141,8 @@
 		8B2019B721AE12EB002F95FD /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				FC54EF6A21B284B500BB78AE /* Model */,
+				FC54EF5721B26AB300BB78AE /* View */,
 				8B2019B821AE12F7002F95FD /* Controller */,
 			);
 			path = Base;
@@ -130,6 +155,10 @@
 				8B2019BA21AE130C002F95FD /* BaseViewController.m */,
 				DE3350C321B0CA8400AED4F4 /* BdbWebViewController.h */,
 				DE3350C421B0CA8400AED4F4 /* BdbWebViewController.m */,
+				FC54EF5421B26A2B00BB78AE /* BdbTableViewController.h */,
+				FC54EF5521B26A2B00BB78AE /* BdbTableViewController.m */,
+				FC54EF6721B2808F00BB78AE /* BdbCardListTableViewController.h */,
+				FC54EF6821B2808F00BB78AE /* BdbCardListTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,6 +184,7 @@
 		8BAB53EB21AD80A600AC813A /* Bdbbuy */ = {
 			isa = PBXGroup;
 			children = (
+				FC54EF5E21B270ED00BB78AE /* Common */,
 				FC54EF4D21B10BDB00BB78AE /* SupportFile */,
 				FC54EF4821B107CB00BB78AE /* Network */,
 				DE3350BF21B0C9B500AED4F4 /* Tabbar */,
@@ -231,6 +261,53 @@
 				FC54EF5021B1718500BB78AE /* HomeDataProvider.m */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		FC54EF5721B26AB300BB78AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF5B21B26AF000BB78AE /* BdbTableView.h */,
+				FC54EF5C21B26AF000BB78AE /* BdbTableView.m */,
+				FC54EF7221B2873300BB78AE /* BdbTableViewCell.h */,
+				FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC54EF5E21B270ED00BB78AE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF6021B271D700BB78AE /* Catogery */,
+				FC54EF5F21B270FE00BB78AE /* CommonDefine.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FC54EF6021B271D700BB78AE /* Catogery */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF6121B271FB00BB78AE /* UIDevice+BdbHelper.h */,
+				FC54EF6221B271FB00BB78AE /* UIDevice+BdbHelper.m */,
+			);
+			path = Catogery;
+			sourceTree = "<group>";
+		};
+		FC54EF6A21B284B500BB78AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF6B21B284BF00BB78AE /* BdbCard.h */,
+				FC54EF6C21B284BF00BB78AE /* BdbCard.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC54EF7121B2870200BB78AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */,
+				FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,11 +446,18 @@
 				DE3350C521B0CA8400AED4F4 /* BdbWebViewController.m in Sources */,
 				DE3350C221B0CA1900AED4F4 /* BdbTabBarViewController.m in Sources */,
 				FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */,
+				FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */,
 				FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */,
+				FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */,
+				FC54EF6321B271FB00BB78AE /* UIDevice+BdbHelper.m in Sources */,
+				FC54EF5D21B26AF000BB78AE /* BdbTableView.m in Sources */,
 				8B2019BB21AE130C002F95FD /* BaseViewController.m in Sources */,
-				8B2019BE21AE1320002F95FD /* HomePageViewController.m in Sources */,
+				FC54EF6921B2808F00BB78AE /* BdbCardListTableViewController.m in Sources */,
 				8BAB53FC21AD80A600AC813A /* main.m in Sources */,
 				8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */,
+				FC54EF6D21B284BF00BB78AE /* BdbCard.m in Sources */,
+				FC54EF5621B26A2B00BB78AE /* BdbTableViewController.m in Sources */,
+				FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

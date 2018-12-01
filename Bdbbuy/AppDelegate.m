@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomePageViewController.h"
+#import "HomePageTableViewController.h"
 #import "BdbTabBarViewController.h"
 #import "BdbWebViewController.h"
 
@@ -25,7 +25,7 @@
     BdbTabBarViewController *tabbar = [[BdbTabBarViewController alloc] init];
     
     //首页
-    HomePageViewController *homeVC = [[HomePageViewController alloc] init];
+    HomePageTableViewController *homeVC = [[HomePageTableViewController alloc] init];
     homeVC.title = @"首页";
     homeVC.tabBarItem = [self tabBarName:@"首页" image:@"home" selected:@"home_highlight"];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:homeVC];

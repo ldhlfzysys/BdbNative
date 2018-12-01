@@ -27,6 +27,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)loadView
+{
+    if (![self baseViewClass]) {
+        [super loadView];
+    } else {
+        self.view = [[[self baseViewClass] alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
+    }
+}
+
+
+- (Class)baseViewClass {
+    return nil;
+}
+
 /*
 #pragma mark - Navigation
 
