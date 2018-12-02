@@ -33,7 +33,7 @@
     
     //分类
     BdbWebViewController *category = [[BdbWebViewController alloc] init];
-    category.baseUrl = @"https://m.bdbbuy.com/category";
+    [category load:@"https://m.bdbbuy.com/category"];
     category.title = @"分类";
     category.tabBarItem = [self tabBarName:@"分类" image:@"category" selected:@"category_highlight"];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:category];
@@ -41,14 +41,14 @@
     
     //购物车
     BdbWebViewController *cart = [[BdbWebViewController alloc] init];
-    cart.baseUrl = @"https://m.bdbbuy.com/cart";
+    [cart load:@"https://m.bdbbuy.com/cart"];
     cart.title = @"购物车";
     cart.tabBarItem = [self tabBarName:@"购物车" image:@"cart" selected:@"cart_highlight"];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:cart];
     
     //我
     BdbWebViewController *user = [[BdbWebViewController alloc] init];
-    user.baseUrl = @"https://m.bdbbuy.com/user";
+    [user load:@"https://m.bdbbuy.com/user"];
     user.title = @"我";
     user.tabBarItem = [self tabBarName:@"我" image:@"user" selected:@"user_highlight"];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:user];

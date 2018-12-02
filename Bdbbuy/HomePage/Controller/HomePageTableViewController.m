@@ -26,11 +26,10 @@
 
 - (void)configSeachView
 {
-    HomeSearchView *searchView = [[HomeSearchView alloc] initWithSeachEngineMargin:70 WithBackgroundImageName:@"" WithplaceHolderName:@"请输入搜索关键字" WithSearchButtonText:@"搜索"];
-    
+    HomeSearchView *searchView = [[HomeSearchView alloc] initWithSeachEngineMargin:70 WithBackgroundImageName:@"search_bg.png" WithplaceHolderName:@"请输入搜索关键字" WithSearchButtonText:@"搜索"];
     
     searchView.frame = CGRectMake(0, self.tableView.top, self.view.width, 44);
-    searchView.backgroundColor = [UIColor orangeColor];
+//    searchView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:searchView];
     [self configHeaderView:searchView];
     
