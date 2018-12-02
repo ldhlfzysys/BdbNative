@@ -21,7 +21,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configTableViewInsets];
+    [self configTableViewInsets:UIEdgeInsetsMake(BdbDefaultTableViewBaseInsetTop, 0, 0, 0)];
 }
 
 -(void)loadView
@@ -88,9 +88,19 @@
 }
 
 #pragma mark - public
-- (void)configTableViewInsets
+- (void)configTableViewInsets:(UIEdgeInsets)edgeInsets
 {
-    self.tableView.contentInset = UIEdgeInsetsMake(BdbDefaultTableViewBaseInsetTop, 0, 0, 0);
+    self.tableView.contentInset = edgeInsets;
+}
+
+- (void)configHeaderView:(UIView *)headerView
+{
+    if (headerView.top == 0) {
+        headerView.top = self.tableView.contentInset.top;
+    }
+    
+    self.tableView.top = headerView.top + headerView.height;
+    [self configTableViewInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
 }
 
 - (Class)tableViewClass

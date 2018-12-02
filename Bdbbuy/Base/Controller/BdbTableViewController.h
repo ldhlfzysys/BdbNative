@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) BdbTableView *tableView;
 - (Class)tableViewClass;
-- (void)configTableViewInsets;
+- (void)configTableViewInsets:(UIEdgeInsets)edgeInsets;
+- (void)configHeaderView:(UIView *)headerView;
 @end
 
 NS_ASSUME_NONNULL_END

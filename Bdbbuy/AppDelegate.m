@@ -10,6 +10,7 @@
 #import "HomePageTableViewController.h"
 #import "BdbTabBarViewController.h"
 #import "BdbWebViewController.h"
+#import "UIView+Layout.h"
 
 @interface AppDelegate ()
 

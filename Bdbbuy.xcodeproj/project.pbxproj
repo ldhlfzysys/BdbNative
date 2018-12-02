@@ -39,6 +39,8 @@
 		FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */; };
 		FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */; };
 		FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */; };
+		FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */; };
+		FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,11 @@
 		FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTableViewCell.m; sourceTree = "<group>"; };
 		FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeGoodsCell.h; sourceTree = "<group>"; };
 		FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeGoodsCell.m; sourceTree = "<group>"; };
+		FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchView.h; sourceTree = "<group>"; };
+		FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchView.m; sourceTree = "<group>"; };
+		FC84FD6621B3ADB800D46A4E /* UIView+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		FC84FD6921B3B1E300D46A4E /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +191,7 @@
 		8BAB53EB21AD80A600AC813A /* Bdbbuy */ = {
 			isa = PBXGroup;
 			children = (
+				FC84FD6921B3B1E300D46A4E /* Global.h */,
 				FC54EF5E21B270ED00BB78AE /* Common */,
 				FC54EF4D21B10BDB00BB78AE /* SupportFile */,
 				FC54EF4821B107CB00BB78AE /* Network */,
@@ -288,6 +296,8 @@
 			children = (
 				FC54EF6121B271FB00BB78AE /* UIDevice+BdbHelper.h */,
 				FC54EF6221B271FB00BB78AE /* UIDevice+BdbHelper.m */,
+				FC84FD6621B3ADB800D46A4E /* UIView+Layout.h */,
+				FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */,
 			);
 			path = Catogery;
 			sourceTree = "<group>";
@@ -306,6 +316,8 @@
 			children = (
 				FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */,
 				FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */,
+				FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */,
+				FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,8 +460,10 @@
 				FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */,
 				FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */,
 				FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */,
+				FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */,
 				FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */,
 				FC54EF6321B271FB00BB78AE /* UIDevice+BdbHelper.m in Sources */,
+				FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */,
 				FC54EF5D21B26AF000BB78AE /* BdbTableView.m in Sources */,
 				8B2019BB21AE130C002F95FD /* BaseViewController.m in Sources */,
 				FC54EF6921B2808F00BB78AE /* BdbCardListTableViewController.m in Sources */,
@@ -585,6 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = Bdbbuy/Global.h;
 				INFOPLIST_FILE = Bdbbuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -600,6 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = Bdbbuy/Global.h;
 				INFOPLIST_FILE = Bdbbuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

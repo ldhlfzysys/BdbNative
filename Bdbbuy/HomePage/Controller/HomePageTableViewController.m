@@ -8,6 +8,8 @@
 
 #import "HomePageTableViewController.h"
 #import "HomeGoodsCell.h"
+#import "HomeSearchView.h"
+#import "UIView+Layout.h"
 
 
 @interface HomePageTableViewController ()
@@ -19,18 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configSeachView];
+}
+
+- (void)configSeachView
+{
+    HomeSearchView *searchView = [[HomeSearchView alloc] initWithSeachEngineMargin:70 WithBackgroundImageName:@"" WithplaceHolderName:@"请输入搜索关键字" WithSearchButtonText:@"搜索"];
     
-# warning Test Example
-    NSMutableArray *array = [NSMutableArray array];
-    BdbMultiCard *card = [[BdbMultiCard alloc] init];
     
-    BdbCard *card1 = [[BdbCard alloc] init];
-    card1.cardClassID = @"HomeGoodsCell";
-    card1.cardHeight = 100;
-    [card.subcards addObject:card1];
+    searchView.frame = CGRectMake(0, self.tableView.top, self.view.width, 44);
+    searchView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:searchView];
+    [self configHeaderView:searchView];
     
-    [array addObject:card];
-    self.cards = array;
 }
 
 
