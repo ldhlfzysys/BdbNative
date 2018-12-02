@@ -10,4 +10,5 @@ target 'Bdbbuy' do
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'SDWebImage'
     pod 'AFNetworking'
+    pod 'SDCycleScrollView','~> 1.75'
 end

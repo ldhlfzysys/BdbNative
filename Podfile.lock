@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -34,6 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - SDCycleScrollView (~> 1.75)
   - SDWebImage
   - UMCAnalytics
   - UMCCommon
@@ -54,6 +57,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
   UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
@@ -61,6 +65,6 @@ SPEC CHECKSUMS:
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   UMCShare: aa233aecad67979930fe43f3a2f676023b669439
 
-PODFILE CHECKSUM: e3720f924de55d8884bef47003b1ffcdae9ff4cc
+PODFILE CHECKSUM: 9c126b912fd59976e46a9ed0d9262bd8e44e9314
 
 COCOAPODS: 1.5.3

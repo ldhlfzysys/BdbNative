@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class BdbTableView;
 @protocol BdbCardListTableViewControllerDelegate <NSObject>
+
+@optional
 - (void)didSelectCard:(BdbCard *)card inTableView:(BdbTableView *)tableView atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)didDeSelectCard:(BdbCard *)card inTableView:(BdbTableView *)tableView atIndexPath:(NSIndexPath *)indexPath;

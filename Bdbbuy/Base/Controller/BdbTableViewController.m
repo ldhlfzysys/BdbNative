@@ -35,6 +35,7 @@
         _tableViewStyle = UITableViewStylePlain;
     }
     self.tableView = [[tableViewClass alloc] initWithFrame:self.view.bounds style:_tableViewStyle];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 #if __IPHONE_11_0 && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
     if (@available(iOS 11.0,*)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -148,6 +149,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+     }
 }
 
 

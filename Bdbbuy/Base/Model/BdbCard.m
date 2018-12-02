@@ -21,6 +21,7 @@
     }
     return _cardClassID;
 }
+
 @end
 
 @implementation BdbMultiCard
@@ -32,6 +33,7 @@
     }
     return _subcards;
 }
+
 
 
 @end

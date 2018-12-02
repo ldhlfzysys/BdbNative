@@ -73,6 +73,11 @@
     if ([card isKindOfClass:[BdbMultiCard class]]) {
         card = [((BdbMultiCard *)card).subcards objectAtIndex:indexPath.row];
     }
+    
+    if (!card.cardHeight || card.cardHeight <= 0) {
+        card.cardHeight = [NSClassFromString(card.cardClassID) computeCellHeight];
+    }
+    
     return card.cardHeight < 0 ? 0 : card.cardHeight;
 }
 
