@@ -11,15 +11,27 @@
 #import "BdbTabBarViewController.h"
 #import "BdbWebViewController.h"
 #import "UIView+Layout.h"
+#import "AXWebViewController.h"
 
-@interface AppDelegate ()
-
+@interface AppDelegate ()<UITabBarControllerDelegate>
+{
+    BdbWebViewController *category;
+    BdbWebViewController *cart;
+    BdbWebViewController *user;
+    NSArray *tabViewControllers;
+}
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UIWebView*webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    NSString*userAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];NSString*newUserAgent = [userAgent stringByAppendingString:@" bdbmobile"];//自定义需要拼接的字符串
+    NSDictionary*dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent,@"UserAgent",nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     // Override point for customization after application launch.
     UIWindow *window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -30,31 +42,26 @@
     homeVC.title = @"首页";
     homeVC.tabBarItem = [self tabBarName:@"首页" image:@"home" selected:@"home_highlight"];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    
-    //分类
-    BdbWebViewController *category = [[BdbWebViewController alloc] init];
-    [category load:@"https://m.bdbbuy.com/category"];
-    category.title = @"分类";
-    category.tabBarItem = [self tabBarName:@"分类" image:@"category" selected:@"category_highlight"];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:category];
-    
-    
     //购物车
-    BdbWebViewController *cart = [[BdbWebViewController alloc] init];
-    [cart load:@"https://m.bdbbuy.com/cart"];
+    cart = [[BdbWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/cart"];
     cart.title = @"购物车";
     cart.tabBarItem = [self tabBarName:@"购物车" image:@"cart" selected:@"cart_highlight"];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:cart];
     
+    //分类
+    category = [[BdbWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/category"];
+    category.title = @"分类";
+    category.tabBarItem = [self tabBarName:@"分类" image:@"category" selected:@"category_highlight"];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:category];
+    
     //我
-    BdbWebViewController *user = [[BdbWebViewController alloc] init];
-    [user load:@"https://m.bdbbuy.com/user"];
+    user = [[BdbWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/user"];
     user.title = @"我";
     user.tabBarItem = [self tabBarName:@"我" image:@"user" selected:@"user_highlight"];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:user];
-    
+    tabViewControllers = @[homeVC,category,cart,user];
     tabbar.viewControllers = @[nav1,nav2,nav3,nav4];
-    
+    tabbar.delegate = self;
     window.rootViewController = tabbar;
     
     self.window = window;
@@ -72,6 +79,36 @@
     return tabbarItem;
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
+{
+//    switch (tabBarController.selectedIndex) {
+//        case 0:
+//        {
+//
+//            break;
+//        }
+//        case 1:
+//        {
+//            AXWebViewController *vc = tabViewControllers[1];
+//            [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/category"]];
+//            break;
+//        }
+//        case 2:
+//        {
+//            AXWebViewController *vc = tabViewControllers[2];
+//            [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/cart"]];
+//            break;
+//        }
+//        case 3:
+//        {
+//            AXWebViewController *vc = tabViewControllers[3];
+//            [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/user"]];
+//            break;
+//        }
+//        default:
+//            break;
+//    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
