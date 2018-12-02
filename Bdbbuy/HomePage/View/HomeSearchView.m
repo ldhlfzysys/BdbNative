@@ -46,10 +46,12 @@
     [self addSubview:engineBackView];
     [self bringSubviewToFront:engineBackView];
     
-    UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-    searchImageView.left = 0;
-    searchImageView.top = 0;
-    searchImageView.width = 30;
+    UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_icon"]];
+    searchImageView.left = 5;
+    
+    searchImageView.width = 20;
+    searchImageView.height = 20;
+    searchImageView.top = (engineBackView.height - searchImageView.height) * 0.5;
     [engineBackView addSubview:searchImageView];
     
     UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -59,13 +61,13 @@
     searchBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [searchBtn sizeToFit];
     searchBtn.right = 0;
-    searchBtn.width = 50;
+    searchBtn.width = 30;
     searchBtn.top = 0;
-    searchBtn.left = engineBackView.width - searchBtn.width;
+    searchBtn.left = engineBackView.width - searchBtn.width - 5;
     searchBtn.alpha = 1;
     [engineBackView addSubview:searchBtn];
-    CGFloat inputW = searchBtn.left - searchImageView.right - 4;
-    UITextField *inputView = [[UITextField alloc] initWithFrame:CGRectMake(searchImageView.right + 2, 0, inputW, engineBackView.height)];
+    CGFloat inputW = searchBtn.left - searchImageView.right - 6;
+    UITextField *inputView = [[UITextField alloc] initWithFrame:CGRectMake(searchImageView.right + 5, 0, inputW, engineBackView.height)];
     [engineBackView addSubview:inputView];
     
 }

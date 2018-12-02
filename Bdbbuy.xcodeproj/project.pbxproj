@@ -30,6 +30,7 @@
 		FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */; };
 		FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */; };
 		FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */; };
+		FCAACB9121B4012A00346E41 /* HomeBannerCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		FC84FD6621B3ADB800D46A4E /* UIView+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		FC84FD6921B3B1E300D46A4E /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		FCAACB8F21B4012900346E41 /* HomeBannerCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBannerCellTableViewCell.h; sourceTree = "<group>"; };
+		FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBannerCellTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +276,8 @@
 		FC54EF7121B2870200BB78AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FCAACB8F21B4012900346E41 /* HomeBannerCellTableViewCell.h */,
+				FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */,
 				FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */,
 				FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */,
 				FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */,
@@ -384,7 +389,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B89321567838C8E57EBC208D /* [CP] Embed Pods Frameworks */ = {
@@ -428,6 +433,7 @@
 				FC54EF6921B2808F00BB78AE /* BdbCardListTableViewController.m in Sources */,
 				8BAB53FC21AD80A600AC813A /* main.m in Sources */,
 				8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */,
+				FCAACB9121B4012A00346E41 /* HomeBannerCellTableViewCell.m in Sources */,
 				FC54EF6D21B284BF00BB78AE /* BdbCard.m in Sources */,
 				FC54EF5621B26A2B00BB78AE /* BdbTableViewController.m in Sources */,
 				FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */,
