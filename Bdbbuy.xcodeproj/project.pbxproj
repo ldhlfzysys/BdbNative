@@ -28,9 +28,13 @@
 		FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */; };
 		FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */; };
 		FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */; };
+		FC76A03421B5771300139402 /* UIImage+Colorful.m in Sources */ = {isa = PBXBuildFile; fileRef = FC76A03321B5771300139402 /* UIImage+Colorful.m */; };
 		FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */; };
 		FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */; };
 		FCAACB9121B4012A00346E41 /* HomeBannerCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */; };
+		FCAACB9421B4098600346E41 /* MultiButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9321B4098600346E41 /* MultiButtonsView.m */; };
+		FCAACB9721B4373400346E41 /* HomeCatogeryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9621B4373400346E41 /* HomeCatogeryTableViewCell.m */; };
+		FCAACB9A21B4D10400346E41 /* BdbCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,8 @@
 		FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTableViewCell.m; sourceTree = "<group>"; };
 		FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeGoodsCell.h; sourceTree = "<group>"; };
 		FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeGoodsCell.m; sourceTree = "<group>"; };
+		FC76A03221B5771300139402 /* UIImage+Colorful.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Colorful.h"; sourceTree = "<group>"; };
+		FC76A03321B5771300139402 /* UIImage+Colorful.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Colorful.m"; sourceTree = "<group>"; };
 		FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchView.h; sourceTree = "<group>"; };
 		FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchView.m; sourceTree = "<group>"; };
 		FC84FD6621B3ADB800D46A4E /* UIView+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
@@ -81,6 +87,12 @@
 		FC84FD6921B3B1E300D46A4E /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		FCAACB8F21B4012900346E41 /* HomeBannerCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBannerCellTableViewCell.h; sourceTree = "<group>"; };
 		FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBannerCellTableViewCell.m; sourceTree = "<group>"; };
+		FCAACB9221B4098600346E41 /* MultiButtonsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiButtonsView.h; sourceTree = "<group>"; };
+		FCAACB9321B4098600346E41 /* MultiButtonsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiButtonsView.m; sourceTree = "<group>"; };
+		FCAACB9521B4373400346E41 /* HomeCatogeryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCatogeryTableViewCell.h; sourceTree = "<group>"; };
+		FCAACB9621B4373400346E41 /* HomeCatogeryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCatogeryTableViewCell.m; sourceTree = "<group>"; };
+		FCAACB9821B4D10400346E41 /* BdbCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCardTableViewCell.h; sourceTree = "<group>"; };
+		FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCardTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +252,10 @@
 				FC54EF5C21B26AF000BB78AE /* BdbTableView.m */,
 				FC54EF7221B2873300BB78AE /* BdbTableViewCell.h */,
 				FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */,
+				FCAACB9221B4098600346E41 /* MultiButtonsView.h */,
+				FCAACB9321B4098600346E41 /* MultiButtonsView.m */,
+				FCAACB9821B4D10400346E41 /* BdbCardTableViewCell.h */,
+				FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +276,8 @@
 				FC54EF6221B271FB00BB78AE /* UIDevice+BdbHelper.m */,
 				FC84FD6621B3ADB800D46A4E /* UIView+Layout.h */,
 				FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */,
+				FC76A03221B5771300139402 /* UIImage+Colorful.h */,
+				FC76A03321B5771300139402 /* UIImage+Colorful.m */,
 			);
 			path = Catogery;
 			sourceTree = "<group>";
@@ -282,6 +300,8 @@
 				FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */,
 				FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */,
 				FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */,
+				FCAACB9521B4373400346E41 /* HomeCatogeryTableViewCell.h */,
+				FCAACB9621B4373400346E41 /* HomeCatogeryTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,13 +456,17 @@
 				FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */,
 				FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */,
 				FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */,
+				FC76A03421B5771300139402 /* UIImage+Colorful.m in Sources */,
 				FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */,
 				FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */,
 				FC54EF6321B271FB00BB78AE /* UIDevice+BdbHelper.m in Sources */,
+				FCAACB9721B4373400346E41 /* HomeCatogeryTableViewCell.m in Sources */,
+				FCAACB9A21B4D10400346E41 /* BdbCardTableViewCell.m in Sources */,
 				FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */,
 				FC54EF5D21B26AF000BB78AE /* BdbTableView.m in Sources */,
 				8B2019BB21AE130C002F95FD /* BaseViewController.m in Sources */,
 				FC54EF6921B2808F00BB78AE /* BdbCardListTableViewController.m in Sources */,
+				FCAACB9421B4098600346E41 /* MultiButtonsView.m in Sources */,
 				8BAB53FC21AD80A600AC813A /* main.m in Sources */,
 				8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */,
 				FCAACB9121B4012A00346E41 /* HomeBannerCellTableViewCell.m in Sources */,

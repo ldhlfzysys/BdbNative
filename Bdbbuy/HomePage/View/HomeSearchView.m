@@ -47,10 +47,10 @@
     [self bringSubviewToFront:engineBackView];
     
     UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_icon"]];
-    searchImageView.left = 5;
+    searchImageView.left = 10;
     
-    searchImageView.width = 20;
-    searchImageView.height = 20;
+    searchImageView.width = 18;
+    searchImageView.height = 18;
     searchImageView.top = (engineBackView.height - searchImageView.height) * 0.5;
     [engineBackView addSubview:searchImageView];
     
@@ -63,11 +63,13 @@
     searchBtn.right = 0;
     searchBtn.width = 30;
     searchBtn.top = 0;
-    searchBtn.left = engineBackView.width - searchBtn.width - 5;
+    searchBtn.left = engineBackView.width - searchBtn.width - 10;
     searchBtn.alpha = 1;
     [engineBackView addSubview:searchBtn];
     CGFloat inputW = searchBtn.left - searchImageView.right - 6;
     UITextField *inputView = [[UITextField alloc] initWithFrame:CGRectMake(searchImageView.right + 5, 0, inputW, engineBackView.height)];
+    inputView.placeholder = self.placeHolderName;
+    inputView.font = [UIFont systemFontOfSize:13];
     [engineBackView addSubview:inputView];
     
 }

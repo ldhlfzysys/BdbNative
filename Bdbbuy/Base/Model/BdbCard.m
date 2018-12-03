@@ -11,9 +11,6 @@
 
 @implementation BdbCard
 
-
-
-
 -(NSString *)cardClassID
 {
     if (!_cardClassID) {

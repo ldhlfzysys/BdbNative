@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BdbTableViewCell : UITableViewCell
 + (CGFloat)computeCellHeight;
+
 @end
 
 NS_ASSUME_NONNULL_END

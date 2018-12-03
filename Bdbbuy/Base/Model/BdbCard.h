@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BdbCard : NSObject
 @property (nonatomic, copy) NSString *cardClassID; // cell的Identifier
 @property (nonatomic, assign) NSInteger cardHeight; // cell的高度
-
+@property (nonatomic, strong) NSDictionary *dataDic; // 数据信息
 @end
 
 

@@ -6,11 +6,11 @@
 //  Copyright © 2018 bdbbuy. All rights reserved.
 //
 
-#import "BdbTableViewCell.h"
+#import "BdbCardTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeBannerCellTableViewCell : BdbTableViewCell
+@interface HomeBannerCellTableViewCell : BdbCardTableViewCell
 
 @end
 

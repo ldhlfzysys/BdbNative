@@ -10,7 +10,8 @@
 #import "HomeGoodsCell.h"
 #import "HomeBannerCellTableViewCell.h"
 #import "HomeSearchView.h"
-#import "UIView+Layout.h"
+#import "MultiButtonsView.h"
+
 
 
 @interface HomePageTableViewController ()
@@ -25,6 +26,7 @@
     // Do any additional setup after loading the view.
     [self configSeachView];
     [self configBannerView];
+    [self configCatogeryView];
     self.cards = [self.homeCards copy];
 }
 
@@ -42,9 +44,36 @@
     BdbCard *bannerCard = [[BdbCard alloc] init];
     bannerCard.cardClassID = @"HomeBannerCellTableViewCell";
     
+    NSMutableArray *bannerArr = [NSMutableArray array];
+    for (int i = 1; i <= 4; i++) {
+        [bannerArr addObject:[NSString stringWithFormat:@"banner%d", i]];
+    }
+    bannerCard.dataDic = [NSDictionary dictionaryWithObject:bannerArr forKey:@"data"];
     [self.homeCards addObject:bannerCard];
 }
 
+
+- (void)configCatogeryView
+{
+    BdbCard *catogeryCard = [[BdbCard alloc] init];
+    catogeryCard.cardClassID = @"HomeCatogeryTableViewCell";
+    NSMutableArray *buttonInfoArr = [NSMutableArray array];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    for (int i = 0; i < 10; i++) {
+        ButtonInfo *info = [[ButtonInfo alloc] init];
+        info.title = @"测试代码";
+        info.normalImageName = @"user";
+        info.vertical = YES;
+        [buttonInfoArr addObject:info];
+    }
+    [dict setObject:buttonInfoArr forKey:@"data"];
+    [dict setObject:@(5) forKey:@"maxLineCount"];
+    
+    catogeryCard.dataDic = [dict copy];
+    catogeryCard.cardHeight = 150;
+    [self.homeCards addObject:catogeryCard];
+    
+}
 
 
 -(NSMutableArray *)homeCards

@@ -7,7 +7,7 @@
 //
 
 #import "BdbCardListTableViewController.h"
-#import "BdbTableViewCell.h"
+#import "BdbCardTableViewCell.h"
 
 
 
@@ -59,9 +59,16 @@
     if ([card isKindOfClass:[BdbMultiCard class]]) {
         card = [((BdbMultiCard *)card).subcards objectAtIndex:indexPath.row];
     }
-    BdbTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:card.cardClassID];
+    BdbCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:card.cardClassID];
     if (!cell) {
-        cell = [[NSClassFromString(card.cardClassID) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:card.cardClassID];
+        if (card.cardClassID && NSClassFromString(card.cardClassID) != nil)
+        {
+            cell = [[NSClassFromString(card.cardClassID) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:card.cardClassID];
+        } else {
+            cell = [[BdbCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BdbCardTableViewCell"];
+            
+        }
+        cell.cellCard = card;
     }
     
     return cell;
