@@ -23,9 +23,9 @@ typedef NS_ENUM(NSUInteger, BdbNetworkRequestType) {
 
 
 + (instancetype)sharedNetwork;
-+ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * resultDic, NSError * error))completion;
++ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id resultDic, NSError * error))completion;
 - (instancetype)initWithBaseURL:(NSString *)baseURL;
-- (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * resultDic, NSError * error))completion;
+- (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id resultDic, NSError * error))completion;
 
 @end
 

@@ -12,8 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeDataProvider : NSObject
 
+@property (nonatomic, copy) NSMutableDictionary *homeData;
+@property (nonatomic, strong) NSArray *bannerUrls;
 
 + (instancetype)sharedProvider;
+- (void)requestHomeDataWithCompletionBlock:(void (^)(BOOL compelet))completion;
 
 @end
 

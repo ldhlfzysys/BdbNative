@@ -11,5 +11,6 @@ target 'Bdbbuy' do
     pod 'SDWebImage'
     pod 'AFNetworking'
     pod 'SDCycleScrollView','~> 1.75'
-    pod 'AXWebViewController', '~> 0.6.0'
+    pod 'AXWebViewController', '~> 0.7.2'
+
 end

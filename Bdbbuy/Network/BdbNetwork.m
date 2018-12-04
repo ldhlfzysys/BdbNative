@@ -34,7 +34,7 @@ static BdbNetwork *network = nil;
 }
 
 
-+ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * resultDic, NSError * error))completion
++ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task,  id result, NSError * error))completion
 {
     if (requestType == BdbNetworkRequestTypeGET) {
         
@@ -62,13 +62,13 @@ static BdbNetwork *network = nil;
 
 
 
-- (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * resultDic, NSError * error))completion
+- (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion
 {
     NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
     [[AFHTTPSessionManager manager] GET:URL parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion) {
-            completion(YES, task, (NSDictionary *)responseObject, nil);
+            completion(YES, task, responseObject, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (completion) {
@@ -78,7 +78,7 @@ static BdbNetwork *network = nil;
 }
 
 
-- (void)sendPostRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * resultDic, NSError * error))completion
+- (void)sendPostRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * result, NSError * error))completion
 {
     NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
     NSLog(@"发起Post请求地址:%@", URL);

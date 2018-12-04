@@ -11,6 +11,7 @@
 #import "HomeBannerCellTableViewCell.h"
 #import "HomeSearchView.h"
 #import "MultiButtonsView.h"
+#import "HomeDataProvider.h"
 
 
 
@@ -24,10 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    配置搜索条
     [self configSeachView];
-    [self configBannerView];
-    [self configCatogeryView];
-    self.cards = [self.homeCards copy];
+    __weak typeof(self) weakSelf = self;
+    [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
+        if (compelet) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf configBannerView];
+            [strongSelf configCatogeryView];
+            strongSelf.cards = [strongSelf.homeCards copy];
+            
+        }
+    }];
+   
 }
 
 - (void)configSeachView
@@ -43,11 +53,17 @@
 {
     BdbCard *bannerCard = [[BdbCard alloc] init];
     bannerCard.cardClassID = @"HomeBannerCellTableViewCell";
-    
     NSMutableArray *bannerArr = [NSMutableArray array];
-    for (int i = 1; i <= 4; i++) {
-        [bannerArr addObject:[NSString stringWithFormat:@"banner%d", i]];
+    NSArray *netBannerArr = [HomeDataProvider sharedProvider].bannerUrls;
+    if (netBannerArr && netBannerArr.count > 0) {
+        bannerArr = [netBannerArr mutableCopy];
+    } else
+    {
+        for (int i = 1; i <= 4; i++) {
+            [bannerArr addObject:[NSString stringWithFormat:@"banner%d", i]];
+        }
     }
+    
     bannerCard.dataDic = [NSDictionary dictionaryWithObject:bannerArr forKey:@"data"];
     [self.homeCards addObject:bannerCard];
 }
