@@ -11,6 +11,7 @@
 
 
 static NSString * BdbBaseURL = @"https://m.bdbbuy.com/";
+static NSTimeInterval BdbTimeout = 300;
 
 @implementation BdbNetwork
 
@@ -36,10 +37,17 @@ static BdbNetwork *network = nil;
 
 + (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task,  id result, NSError * error))completion
 {
-    if (requestType == BdbNetworkRequestTypeGET) {
-        
-    }
+    [self sendRequestWithType:requestType WithPath:path WithParam:paramDic WithTimeout:BdbTimeout compeletion:completion];
     
+}
+
++ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic WithTimeout:(NSTimeInterval)timeout compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task,  id result, NSError * error))completion
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = timeout;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     switch (requestType) {
         case BdbNetworkRequestTypeGET:
         {
@@ -55,11 +63,7 @@ static BdbNetwork *network = nil;
         default:
             break;
     }
-    
 }
-
-
-
 
 
 - (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion

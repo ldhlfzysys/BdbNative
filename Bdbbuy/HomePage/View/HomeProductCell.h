@@ -1,8 +1,8 @@
 //
-//  HomeCatogeryTableViewCell.h
+//  HomeProductCell.h
 //  Bdbbuy
 //
-//  Created by liweixi on 2018/12/2.
+//  Created by liweixi on 2018/12/5.
 //  Copyright © 2018 bdbbuy. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeCatogeryTableViewCell : BdbCardTableViewCell
+@interface HomeProductCell : BdbCardTableViewCell
 
 @end
 

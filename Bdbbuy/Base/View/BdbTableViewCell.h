@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BdbTableViewCell : UITableViewCell
 + (CGFloat)computeCellHeight;
-
+@property (nonatomic, weak) id delegate;
 @end
 
 NS_ASSUME_NONNULL_END

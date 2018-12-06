@@ -59,16 +59,30 @@
     if ([card isKindOfClass:[BdbMultiCard class]]) {
         card = [((BdbMultiCard *)card).subcards objectAtIndex:indexPath.row];
     }
-    BdbCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:card.cardClassID];
+    
+    NSString *reuseId = (card.cardClassID && NSClassFromString(card.cardClassID) != nil) ? card.cardClassID : NSStringFromClass([card class]);
+    
+    BdbCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     if (!cell) {
+        card.delegate = self;
         if (card.cardClassID && NSClassFromString(card.cardClassID) != nil)
         {
-            cell = [[NSClassFromString(card.cardClassID) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:card.cardClassID];
+            Class cardClass = NSClassFromString(card.cardClassID);
+            NSAssert(![cardClass isKindOfClass:[BdbCardTableViewCell class]], @"Please use BdbCardTableViewCell");
+            cell = [[cardClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId cellCard:card];
         } else {
-            cell = [[BdbCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BdbCardTableViewCell"];
+            cell = [[BdbCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId cellCard:card];
+            if (![card conformsToProtocol:@protocol(BdbCardProtocol)]) {
+                return nil;
+            }
+            id<BdbCardProtocol> cellCard = card;
+            NSMutableDictionary *datadic = [NSMutableDictionary dictionaryWithDictionary:card.dataDic];
+            [datadic setObject:@(cell.contentView.width) forKey:@"cellWidth"];
+            UIView *cardView = [cellCard viewWithCardData:card.dataDic];
+            [cell.contentView addSubview:cardView];
             
+
         }
-        cell.cellCard = card;
     }
     
     return cell;
@@ -82,7 +96,13 @@
     }
     
     if (!card.cardHeight || card.cardHeight <= 0) {
-        card.cardHeight = [NSClassFromString(card.cardClassID) computeCellHeight];
+        if (card.cardClassID && card.cardClassID.length > 0) {
+            card.cardHeight = [NSClassFromString(card.cardClassID) computeCellHeight];
+        } else
+        {
+            card.cardHeight = [card computeCardHeight];
+        }
+        
     }
     
     return card.cardHeight < 0 ? 0 : card.cardHeight;

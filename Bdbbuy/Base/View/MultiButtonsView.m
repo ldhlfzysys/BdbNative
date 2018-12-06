@@ -11,8 +11,19 @@
 
 static int minLineCount = 2;
 static int maxLineCount = 6;
-@interface ButtonInfo () <NSCoding>
 
+@interface MultiButton : UIButton
+
+@end
+@implementation MultiButton
+
+
+
+@end
+
+
+@interface ButtonInfo () <NSCoding>
+//+ima
 @end
 
 @implementation ButtonInfo
@@ -84,14 +95,34 @@ static int maxLineCount = 6;
     
     for (int i = 0; i < self.buttonInfos.count; i++) {
         ButtonInfo *info = self.buttonInfos[i];
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        MultiButton *btn = [MultiButton buttonWithType:UIButtonTypeCustom];
         if (info.title) {
             [btn setTitle:info.title forState:UIControlStateNormal];
         }
         if (info.normalImageName) {
-            [btn setImage:[UIImage imageNamed:info.normalImageName] forState:UIControlStateNormal];
+            if ([info.normalImageName hasPrefix:@"http"]) {
+                NSURL *url = [NSURL URLWithString:info.normalImageName];
+                [btn sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:info.placeHolderImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                    if (info.isVertical) {
+                        btn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+                        btn.contentHorizontalAlignment = UIControlContentVerticalAlignmentCenter;
+                        CGFloat margin = 5;
+                        btn.titleEdgeInsets = UIEdgeInsetsMake(0, -btn.imageView.width, -btn.imageView.height - margin, 0);
+                        btn.imageEdgeInsets = UIEdgeInsetsMake(-btn.titleLabel.height - margin, 0, 0, -btn.titleLabel.width);
+                    }
+                }];
+            } else {
+                [btn setImage:[UIImage imageNamed:info.normalImageName] forState:UIControlStateNormal];
+            }
+            
             if (info.hilightedImageName) {
-                [btn setImage:[UIImage imageNamed:info.hilightedImageName] forState:UIControlStateHighlighted];
+                if ([info.hilightedImageName hasPrefix:@"http"]) {
+                    NSURL *url = [NSURL URLWithString:info.hilightedImageName];
+                    [btn sd_setImageWithURL:url forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:info.placeHolderImage]];
+                } else
+                {
+                    [btn setImage:[UIImage imageNamed:info.hilightedImageName] forState:UIControlStateHighlighted];
+                }
             }
         }
         
@@ -115,18 +146,25 @@ static int maxLineCount = 6;
         btn.top = (i / self.maxLineCount) * buttonH;
         
         if (info.isVertical) {
-            btn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-            btn.contentHorizontalAlignment = UIControlContentVerticalAlignmentCenter;
-            CGFloat margin = 5;
-            btn.titleEdgeInsets = UIEdgeInsetsMake(0, -btn.imageView.width, -btn.imageView.height - margin, 0);
-            btn.imageEdgeInsets = UIEdgeInsetsMake(-btn.titleLabel.height - margin, 0, 0, -btn.titleLabel.width);
+            [btn layoutButtonWithEdgeInsetsStyle:BDBButtonEdgeInsetsStyleTop imageTitleSpace:5];
         }
         
         [self addSubview:btn];
+        [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     
 
+}
+
+
+- (void)buttonClick:(UIButton *)btn
+{
+    NSLog(@"%@", btn);
+    NSInteger index = (btn.y / btn.height) * self.maxLineCount + (btn.x / btn.width);
+    if ([self.delegate respondsToSelector:@selector(multibuttonsview:DidSelectButton:)]) {
+        [self.delegate multibuttonsview:self DidSelectButton:index];
+    }
 }
 
 

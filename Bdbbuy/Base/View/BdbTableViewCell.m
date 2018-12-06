@@ -8,7 +8,10 @@
 
 #import "BdbTableViewCell.h"
 
+
 @implementation BdbTableViewCell
+
+@synthesize delegate;
 
 - (void)awakeFromNib {
     [super awakeFromNib];

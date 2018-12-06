@@ -27,14 +27,26 @@
 		FC54EF6D21B284BF00BB78AE /* BdbCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6C21B284BF00BB78AE /* BdbCard.m */; };
 		FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */; };
 		FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */; };
-		FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */; };
 		FC76A03421B5771300139402 /* UIImage+Colorful.m in Sources */ = {isa = PBXBuildFile; fileRef = FC76A03321B5771300139402 /* UIImage+Colorful.m */; };
 		FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */; };
 		FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */; };
-		FCAACB9121B4012A00346E41 /* HomeBannerCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */; };
 		FCAACB9421B4098600346E41 /* MultiButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9321B4098600346E41 /* MultiButtonsView.m */; };
-		FCAACB9721B4373400346E41 /* HomeCatogeryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9621B4373400346E41 /* HomeCatogeryTableViewCell.m */; };
 		FCAACB9A21B4D10400346E41 /* BdbCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */; };
+		FCD860ED21B73597002C3AFD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860EB21B73596002C3AFD /* UIColor+Hex.m */; };
+		FCD860EE21B73597002C3AFD /* NSString+CalculateFontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860EC21B73597002C3AFD /* NSString+CalculateFontSize.m */; };
+		FCD860F321B735DC002C3AFD /* HeaderToolScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860F121B735DC002C3AFD /* HeaderToolScrollBar.m */; };
+		FCD860F621B735F1002C3AFD /* BdbSegmentMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860F521B735F1002C3AFD /* BdbSegmentMenu.m */; };
+		FCD860F921B73814002C3AFD /* HomeProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860F821B73814002C3AFD /* HomeProductCell.m */; };
+		FCD860FC21B73DB8002C3AFD /* BdbLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860FB21B73DB8002C3AFD /* BdbLineTableViewCell.m */; };
+		FCD860FF21B740DE002C3AFD /* HomeProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860FE21B740DE002C3AFD /* HomeProductController.m */; };
+		FCD8610221B780C7002C3AFD /* UIButton+ImageTileSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8610121B780C7002C3AFD /* UIButton+ImageTileSpacing.m */; };
+		FCD8610521B78D6D002C3AFD /* BdbCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8610421B78D6D002C3AFD /* BdbCollectionView.m */; };
+		FCD8610821B7C9CA002C3AFD /* BdbCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8610721B7C9CA002C3AFD /* BdbCollectionViewCell.m */; };
+		FCD8610B21B7CA20002C3AFD /* HomeProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8610A21B7CA20002C3AFD /* HomeProductCollectionViewCell.m */; };
+		FCD8611621B89BEB002C3AFD /* BdbHomeBannerCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611521B89BEB002C3AFD /* BdbHomeBannerCard.m */; };
+		FCD8611921B89EC4002C3AFD /* BdbHomeCatogeryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611821B89EC4002C3AFD /* BdbHomeCatogeryCard.m */; };
+		FCD8611C21B89ED6002C3AFD /* BdbHomeProductsCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611B21B89ED6002C3AFD /* BdbHomeProductsCard.m */; };
+		FCD8611F21B89EF7002C3AFD /* BdbHomeRecommendCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611E21B89EF7002C3AFD /* BdbHomeRecommendCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,8 +88,6 @@
 		FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageTableViewController.m; sourceTree = "<group>"; };
 		FC54EF7221B2873300BB78AE /* BdbTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbTableViewCell.h; sourceTree = "<group>"; };
 		FC54EF7321B2873300BB78AE /* BdbTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTableViewCell.m; sourceTree = "<group>"; };
-		FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeGoodsCell.h; sourceTree = "<group>"; };
-		FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeGoodsCell.m; sourceTree = "<group>"; };
 		FC76A03221B5771300139402 /* UIImage+Colorful.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Colorful.h"; sourceTree = "<group>"; };
 		FC76A03321B5771300139402 /* UIImage+Colorful.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Colorful.m"; sourceTree = "<group>"; };
 		FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchView.h; sourceTree = "<group>"; };
@@ -85,14 +95,41 @@
 		FC84FD6621B3ADB800D46A4E /* UIView+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		FC84FD6921B3B1E300D46A4E /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
-		FCAACB8F21B4012900346E41 /* HomeBannerCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBannerCellTableViewCell.h; sourceTree = "<group>"; };
-		FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBannerCellTableViewCell.m; sourceTree = "<group>"; };
 		FCAACB9221B4098600346E41 /* MultiButtonsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiButtonsView.h; sourceTree = "<group>"; };
 		FCAACB9321B4098600346E41 /* MultiButtonsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiButtonsView.m; sourceTree = "<group>"; };
-		FCAACB9521B4373400346E41 /* HomeCatogeryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCatogeryTableViewCell.h; sourceTree = "<group>"; };
-		FCAACB9621B4373400346E41 /* HomeCatogeryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCatogeryTableViewCell.m; sourceTree = "<group>"; };
 		FCAACB9821B4D10400346E41 /* BdbCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCardTableViewCell.h; sourceTree = "<group>"; };
 		FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCardTableViewCell.m; sourceTree = "<group>"; };
+		FCD860E921B73596002C3AFD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		FCD860EA21B73596002C3AFD /* NSString+CalculateFontSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CalculateFontSize.h"; sourceTree = "<group>"; };
+		FCD860EB21B73596002C3AFD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		FCD860EC21B73597002C3AFD /* NSString+CalculateFontSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CalculateFontSize.m"; sourceTree = "<group>"; };
+		FCD860F121B735DC002C3AFD /* HeaderToolScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderToolScrollBar.m; sourceTree = "<group>"; };
+		FCD860F221B735DC002C3AFD /* HeaderToolScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderToolScrollBar.h; sourceTree = "<group>"; };
+		FCD860F421B735F1002C3AFD /* BdbSegmentMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BdbSegmentMenu.h; sourceTree = "<group>"; };
+		FCD860F521B735F1002C3AFD /* BdbSegmentMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BdbSegmentMenu.m; sourceTree = "<group>"; };
+		FCD860F721B73814002C3AFD /* HomeProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductCell.h; sourceTree = "<group>"; };
+		FCD860F821B73814002C3AFD /* HomeProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductCell.m; sourceTree = "<group>"; };
+		FCD860FA21B73DB8002C3AFD /* BdbLineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbLineTableViewCell.h; sourceTree = "<group>"; };
+		FCD860FB21B73DB8002C3AFD /* BdbLineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbLineTableViewCell.m; sourceTree = "<group>"; };
+		FCD860FD21B740DE002C3AFD /* HomeProductController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductController.h; sourceTree = "<group>"; };
+		FCD860FE21B740DE002C3AFD /* HomeProductController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductController.m; sourceTree = "<group>"; };
+		FCD8610021B780C7002C3AFD /* UIButton+ImageTileSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTileSpacing.h"; sourceTree = "<group>"; };
+		FCD8610121B780C7002C3AFD /* UIButton+ImageTileSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTileSpacing.m"; sourceTree = "<group>"; };
+		FCD8610321B78D6D002C3AFD /* BdbCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCollectionView.h; sourceTree = "<group>"; };
+		FCD8610421B78D6D002C3AFD /* BdbCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCollectionView.m; sourceTree = "<group>"; };
+		FCD8610621B7C9CA002C3AFD /* BdbCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCollectionViewCell.h; sourceTree = "<group>"; };
+		FCD8610721B7C9CA002C3AFD /* BdbCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCollectionViewCell.m; sourceTree = "<group>"; };
+		FCD8610921B7CA20002C3AFD /* HomeProductCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductCollectionViewCell.h; sourceTree = "<group>"; };
+		FCD8610A21B7CA20002C3AFD /* HomeProductCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductCollectionViewCell.m; sourceTree = "<group>"; };
+		FCD8611321B89B68002C3AFD /* BdbCardProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCardProtocol.h; sourceTree = "<group>"; };
+		FCD8611421B89BEB002C3AFD /* BdbHomeBannerCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbHomeBannerCard.h; sourceTree = "<group>"; };
+		FCD8611521B89BEB002C3AFD /* BdbHomeBannerCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeBannerCard.m; sourceTree = "<group>"; };
+		FCD8611721B89EC4002C3AFD /* BdbHomeCatogeryCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbHomeCatogeryCard.h; sourceTree = "<group>"; };
+		FCD8611821B89EC4002C3AFD /* BdbHomeCatogeryCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeCatogeryCard.m; sourceTree = "<group>"; };
+		FCD8611A21B89ED6002C3AFD /* BdbHomeProductsCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbHomeProductsCard.h; sourceTree = "<group>"; };
+		FCD8611B21B89ED6002C3AFD /* BdbHomeProductsCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeProductsCard.m; sourceTree = "<group>"; };
+		FCD8611D21B89EF7002C3AFD /* BdbHomeRecommendCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbHomeRecommendCard.h; sourceTree = "<group>"; };
+		FCD8611E21B89EF7002C3AFD /* BdbHomeRecommendCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeRecommendCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +159,7 @@
 		8B2019B521AE1203002F95FD /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				FCD8611121B897CE002C3AFD /* Cards */,
 				FC54EF7121B2870200BB78AE /* View */,
 				FC54EF4E21B170FA00BB78AE /* DataManager */,
 				8B2019B621AE12B2002F95FD /* Controller */,
@@ -134,6 +172,8 @@
 			children = (
 				FC54EF6E21B2866900BB78AE /* HomePageTableViewController.h */,
 				FC54EF6F21B2866900BB78AE /* HomePageTableViewController.m */,
+				FCD860FD21B740DE002C3AFD /* HomeProductController.h */,
+				FCD860FE21B740DE002C3AFD /* HomeProductController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +181,7 @@
 		8B2019B721AE12EB002F95FD /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				FCD8611221B89B49002C3AFD /* Protocol */,
 				FC54EF6A21B284B500BB78AE /* Model */,
 				FC54EF5721B26AB300BB78AE /* View */,
 				8B2019B821AE12F7002F95FD /* Controller */,
@@ -184,6 +225,7 @@
 		8BAB53EB21AD80A600AC813A /* Bdbbuy */ = {
 			isa = PBXGroup;
 			children = (
+				FCD860EF21B735A7002C3AFD /* Segment */,
 				FC84FD6921B3B1E300D46A4E /* Global.h */,
 				FC54EF5E21B270ED00BB78AE /* Common */,
 				FC54EF4D21B10BDB00BB78AE /* SupportFile */,
@@ -256,6 +298,12 @@
 				FCAACB9321B4098600346E41 /* MultiButtonsView.m */,
 				FCAACB9821B4D10400346E41 /* BdbCardTableViewCell.h */,
 				FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */,
+				FCD860FA21B73DB8002C3AFD /* BdbLineTableViewCell.h */,
+				FCD860FB21B73DB8002C3AFD /* BdbLineTableViewCell.m */,
+				FCD8610321B78D6D002C3AFD /* BdbCollectionView.h */,
+				FCD8610421B78D6D002C3AFD /* BdbCollectionView.m */,
+				FCD8610621B7C9CA002C3AFD /* BdbCollectionViewCell.h */,
+				FCD8610721B7C9CA002C3AFD /* BdbCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,6 +326,12 @@
 				FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */,
 				FC76A03221B5771300139402 /* UIImage+Colorful.h */,
 				FC76A03321B5771300139402 /* UIImage+Colorful.m */,
+				FCD860EA21B73596002C3AFD /* NSString+CalculateFontSize.h */,
+				FCD860EC21B73597002C3AFD /* NSString+CalculateFontSize.m */,
+				FCD860E921B73596002C3AFD /* UIColor+Hex.h */,
+				FCD860EB21B73596002C3AFD /* UIColor+Hex.m */,
+				FCD8610021B780C7002C3AFD /* UIButton+ImageTileSpacing.h */,
+				FCD8610121B780C7002C3AFD /* UIButton+ImageTileSpacing.m */,
 			);
 			path = Catogery;
 			sourceTree = "<group>";
@@ -294,16 +348,56 @@
 		FC54EF7121B2870200BB78AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FCAACB8F21B4012900346E41 /* HomeBannerCellTableViewCell.h */,
-				FCAACB9021B4012900346E41 /* HomeBannerCellTableViewCell.m */,
-				FC54EF7521B287A400BB78AE /* HomeGoodsCell.h */,
-				FC54EF7621B287A400BB78AE /* HomeGoodsCell.m */,
 				FC84FD6021B39D3F00D46A4E /* HomeSearchView.h */,
 				FC84FD6121B39D3F00D46A4E /* HomeSearchView.m */,
-				FCAACB9521B4373400346E41 /* HomeCatogeryTableViewCell.h */,
-				FCAACB9621B4373400346E41 /* HomeCatogeryTableViewCell.m */,
+				FCD860F721B73814002C3AFD /* HomeProductCell.h */,
+				FCD860F821B73814002C3AFD /* HomeProductCell.m */,
+				FCD8610921B7CA20002C3AFD /* HomeProductCollectionViewCell.h */,
+				FCD8610A21B7CA20002C3AFD /* HomeProductCollectionViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FCD860EF21B735A7002C3AFD /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+				FCD860F021B735C6002C3AFD /* HeaderToolBar */,
+				FCD860F421B735F1002C3AFD /* BdbSegmentMenu.h */,
+				FCD860F521B735F1002C3AFD /* BdbSegmentMenu.m */,
+			);
+			path = Segment;
+			sourceTree = "<group>";
+		};
+		FCD860F021B735C6002C3AFD /* HeaderToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				FCD860F221B735DC002C3AFD /* HeaderToolScrollBar.h */,
+				FCD860F121B735DC002C3AFD /* HeaderToolScrollBar.m */,
+			);
+			path = HeaderToolBar;
+			sourceTree = "<group>";
+		};
+		FCD8611121B897CE002C3AFD /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				FCD8611A21B89ED6002C3AFD /* BdbHomeProductsCard.h */,
+				FCD8611B21B89ED6002C3AFD /* BdbHomeProductsCard.m */,
+				FCD8611421B89BEB002C3AFD /* BdbHomeBannerCard.h */,
+				FCD8611521B89BEB002C3AFD /* BdbHomeBannerCard.m */,
+				FCD8611721B89EC4002C3AFD /* BdbHomeCatogeryCard.h */,
+				FCD8611821B89EC4002C3AFD /* BdbHomeCatogeryCard.m */,
+				FCD8611D21B89EF7002C3AFD /* BdbHomeRecommendCard.h */,
+				FCD8611E21B89EF7002C3AFD /* BdbHomeRecommendCard.m */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		FCD8611221B89B49002C3AFD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FCD8611321B89B68002C3AFD /* BdbCardProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,27 +546,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3350C521B0CA8400AED4F4 /* BdbWebViewController.m in Sources */,
+				FCD8610821B7C9CA002C3AFD /* BdbCollectionViewCell.m in Sources */,
 				DE3350C221B0CA1900AED4F4 /* BdbTabBarViewController.m in Sources */,
+				FCD8611C21B89ED6002C3AFD /* BdbHomeProductsCard.m in Sources */,
+				FCD860EE21B73597002C3AFD /* NSString+CalculateFontSize.m in Sources */,
+				FCD8611F21B89EF7002C3AFD /* BdbHomeRecommendCard.m in Sources */,
 				FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */,
-				FC54EF7721B287A400BB78AE /* HomeGoodsCell.m in Sources */,
 				FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */,
 				FC76A03421B5771300139402 /* UIImage+Colorful.m in Sources */,
+				FCD860FF21B740DE002C3AFD /* HomeProductController.m in Sources */,
 				FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */,
 				FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */,
 				FC54EF6321B271FB00BB78AE /* UIDevice+BdbHelper.m in Sources */,
-				FCAACB9721B4373400346E41 /* HomeCatogeryTableViewCell.m in Sources */,
+				FCD860ED21B73597002C3AFD /* UIColor+Hex.m in Sources */,
+				FCD860FC21B73DB8002C3AFD /* BdbLineTableViewCell.m in Sources */,
+				FCD860F921B73814002C3AFD /* HomeProductCell.m in Sources */,
 				FCAACB9A21B4D10400346E41 /* BdbCardTableViewCell.m in Sources */,
+				FCD8611621B89BEB002C3AFD /* BdbHomeBannerCard.m in Sources */,
 				FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */,
+				FCD860F321B735DC002C3AFD /* HeaderToolScrollBar.m in Sources */,
 				FC54EF5D21B26AF000BB78AE /* BdbTableView.m in Sources */,
 				8B2019BB21AE130C002F95FD /* BaseViewController.m in Sources */,
 				FC54EF6921B2808F00BB78AE /* BdbCardListTableViewController.m in Sources */,
 				FCAACB9421B4098600346E41 /* MultiButtonsView.m in Sources */,
 				8BAB53FC21AD80A600AC813A /* main.m in Sources */,
 				8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */,
-				FCAACB9121B4012A00346E41 /* HomeBannerCellTableViewCell.m in Sources */,
 				FC54EF6D21B284BF00BB78AE /* BdbCard.m in Sources */,
+				FCD8610B21B7CA20002C3AFD /* HomeProductCollectionViewCell.m in Sources */,
 				FC54EF5621B26A2B00BB78AE /* BdbTableViewController.m in Sources */,
+				FCD8610221B780C7002C3AFD /* UIButton+ImageTileSpacing.m in Sources */,
+				FCD8610521B78D6D002C3AFD /* BdbCollectionView.m in Sources */,
+				FCD8611921B89EC4002C3AFD /* BdbHomeCatogeryCard.m in Sources */,
 				FC54EF7021B2866900BB78AE /* HomePageTableViewController.m in Sources */,
+				FCD860F621B735F1002C3AFD /* BdbSegmentMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

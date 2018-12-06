@@ -11,14 +11,39 @@
 
 @implementation BdbCard
 
--(NSString *)cardClassID
+#pragma mark - Public
++ (NSString *)getCardTypeWithType:(BdbCardType)type
 {
-    if (!_cardClassID) {
-        _cardClassID = NSStringFromClass([BdbTableViewCell class]);
+    NSString *cardType =@"";
+    switch (type) {
+        case BdbCardTypeHomeBanner:
+        {
+            cardType = @"BdbHomeBannerCard";
+        }
+            break;
+        case BdbCardTypeHomeCatogery:
+        {
+            cardType = @"BdbHomeCatogeryCard";
+        }
+            break;
+        case BdbCardTypeHomeProducts:
+        {
+            cardType = @"BdbHomeProductsCard";
+        }
+            break;
+        case BdbCardTypeHomeRecommend:
+        {
+            cardType = @"BdbHomeRecommendCard";
+        }
+            break;
+            
+        default:
+            break;
     }
-    return _cardClassID;
+    
+    NSAssert(cardType.length > 0, @"请配置Card");
+    return  cardType;
 }
-
 @end
 
 @implementation BdbMultiCard

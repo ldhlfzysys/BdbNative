@@ -28,7 +28,24 @@ static HomeDataProvider * provider = nil;
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (success) {
             NSArray *homeData = (NSArray *)result;
-            strongSelf.bannerUrls = homeData[0][@"data"];
+            strongSelf.homeData = homeData;
+            for (NSDictionary *dic in homeData) {
+                int type = [dic[@"type"] intValue];
+                switch (type) {
+                    case 1:
+                        strongSelf.bannerUrls = dic[@"data"];
+                        break;
+                    case 2:
+                        strongSelf.catogeryInfos = dic[@"data"];
+                        break;
+                    case 3:
+                        
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
             completion(YES);
         }
     }];

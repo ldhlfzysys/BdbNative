@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BdbCardTableViewCell : BdbTableViewCell
 @property (nonatomic, weak) BdbCard *cellCard;
-
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier cellCard:(BdbCard *)cellCard;
 @end
 
 NS_ASSUME_NONNULL_END

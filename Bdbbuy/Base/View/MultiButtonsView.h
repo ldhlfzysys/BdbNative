@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 @interface ButtonInfo : NSObject
 @property (nonatomic, copy) NSString *title;
@@ -22,10 +23,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@class MultiButtonsView;
+@protocol MultiButtonsViewDelegate <NSObject>
+@optional
+- (void)multibuttonsview:(MultiButtonsView *)buttonsView DidSelectButton:(NSInteger)index;
+@end
+
 @interface MultiButtonsView : UIView
 @property (nonatomic, assign) int maxLineCount; // 一行布局最大button数,最大不能超过6个
 @property (nonatomic, copy) NSArray<ButtonInfo *> *buttonInfos;
 - (instancetype)initWithFrame:(CGRect)frame WithButtonInfos:(NSArray<ButtonInfo *> *)buttonInfos WithMaxLineCount:(int)maxLineCount;
+
+
+@property (nonatomic, weak) id<MultiButtonsViewDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

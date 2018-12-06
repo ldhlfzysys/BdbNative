@@ -8,12 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSUInteger, BdbCardType) {
+    BdbCardTypeHomeBanner = 1,
+    BdbCardTypeHomeCatogery = 2,
+    BdbCardTypeHomeProducts = 3,
+    BdbCardTypeHomeRecommend = 4
+};
 
 @interface BdbCard : NSObject
 @property (nonatomic, copy) NSString *cardClassID; // cell的Identifier
 @property (nonatomic, assign) NSInteger cardHeight; // cell的高度
 @property (nonatomic, strong) NSDictionary *dataDic; // 数据信息
+@property (nonatomic, weak) id delegate;
+
++ (NSString *)getCardTypeWithType:(BdbCardType)type;
+- (CGFloat)computeCardHeight;
 @end
 
 
@@ -21,4 +30,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<BdbCard *> *subcards;
 @end
 
-NS_ASSUME_NONNULL_END

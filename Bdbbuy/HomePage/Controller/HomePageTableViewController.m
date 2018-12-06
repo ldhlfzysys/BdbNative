@@ -7,15 +7,13 @@
 //
 
 #import "HomePageTableViewController.h"
-#import "HomeGoodsCell.h"
-#import "HomeBannerCellTableViewCell.h"
 #import "HomeSearchView.h"
 #import "MultiButtonsView.h"
 #import "HomeDataProvider.h"
 
 
 
-@interface HomePageTableViewController ()
+@interface HomePageTableViewController ()<MultiButtonsViewDelegate>
 @property (nonatomic,strong) NSMutableArray *homeCards;
 
 @end
@@ -28,16 +26,27 @@
 //    配置搜索条
     [self configSeachView];
     __weak typeof(self) weakSelf = self;
+//    [self configBannerView];
+//    [self configCatogeryView];
+//    [self configProductView];
+//    self.cards = [self.homeCards copy];
+#warning 网速太差，本地debug时暂停网络请求
     [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
         if (compelet) {
             __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf configBannerView];
-            [strongSelf configCatogeryView];
+            [strongSelf configTableView];
             strongSelf.cards = [strongSelf.homeCards copy];
-            
+
         }
     }];
-   
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    
 }
 
 - (void)configSeachView
@@ -49,49 +58,39 @@
     
 }
 
-- (void)configBannerView
+- (void)configTableView
 {
-    BdbCard *bannerCard = [[BdbCard alloc] init];
-    bannerCard.cardClassID = @"HomeBannerCellTableViewCell";
-    NSMutableArray *bannerArr = [NSMutableArray array];
-    NSArray *netBannerArr = [HomeDataProvider sharedProvider].bannerUrls;
-    if (netBannerArr && netBannerArr.count > 0) {
-        bannerArr = [netBannerArr mutableCopy];
-    } else
-    {
-        for (int i = 1; i <= 4; i++) {
-            [bannerArr addObject:[NSString stringWithFormat:@"banner%d", i]];
-        }
+    for (NSDictionary *dic in [HomeDataProvider sharedProvider].homeData) {
+        NSInteger type = [[dic objectForKey:@"type"] integerValue];
+        BdbCard *card = [[NSClassFromString([BdbCard getCardTypeWithType:type]) alloc] init];
+        card.dataDic = [NSDictionary dictionaryWithObject:[dic objectForKey:@"data"] forKey:@"data"];
+        [self.homeCards addObject:card];
     }
-    
-    bannerCard.dataDic = [NSDictionary dictionaryWithObject:bannerArr forKey:@"data"];
-    [self.homeCards addObject:bannerCard];
 }
 
-
-- (void)configCatogeryView
+- (void)configLineView
 {
-    BdbCard *catogeryCard = [[BdbCard alloc] init];
-    catogeryCard.cardClassID = @"HomeCatogeryTableViewCell";
-    NSMutableArray *buttonInfoArr = [NSMutableArray array];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    for (int i = 0; i < 10; i++) {
-        ButtonInfo *info = [[ButtonInfo alloc] init];
-        info.title = @"测试代码";
-        info.normalImageName = @"user";
-        info.vertical = YES;
-        [buttonInfoArr addObject:info];
-    }
-    [dict setObject:buttonInfoArr forKey:@"data"];
-    [dict setObject:@(5) forKey:@"maxLineCount"];
+    BdbCard *lineCard = [[BdbCard alloc] init];
+    lineCard.cardClassID = @"BdbLineTableViewCell";
     
-    catogeryCard.dataDic = [dict copy];
-    catogeryCard.cardHeight = 150;
-    [self.homeCards addObject:catogeryCard];
+    lineCard.cardHeight = 10;
+    [self.homeCards addObject:lineCard];
+}
+
+#pragma mark - Delegate
+-(void)multibuttonsview:(MultiButtonsView *)buttonsView DidSelectButton:(NSInteger)index
+{
+    NSDictionary *catagoryDic = [HomeDataProvider sharedProvider].catogeryInfos[index];
+    BdbWebViewController *category = [[BdbWebViewController alloc] initWithAddress:catagoryDic[@"url"]];
+    category.title = catagoryDic[@"name"];
+    [self resignFirstResponder];
+    [self.navigationController pushViewController:category animated:NO];
     
 }
 
 
+
+#pragma mark - Setter & Getter
 -(NSMutableArray *)homeCards
 {
     if (!_homeCards) {
