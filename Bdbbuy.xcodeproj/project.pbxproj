@@ -34,6 +34,7 @@
 		FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */; };
 		FCAACB9421B4098600346E41 /* MultiButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9321B4098600346E41 /* MultiButtonsView.m */; };
 		FCAACB9A21B4D10400346E41 /* BdbCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */; };
+		FCC36E2D21B92B4900BEC025 /* UIViewController+QuickMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC36E2C21B92B4900BEC025 /* UIViewController+QuickMethod.m */; };
 		FCC97B2E21B8CE9500CF943F /* homedatamock.json in Resources */ = {isa = PBXBuildFile; fileRef = FCC97B2D21B8CE9500CF943F /* homedatamock.json */; };
 		FCD860ED21B73597002C3AFD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860EB21B73596002C3AFD /* UIColor+Hex.m */; };
 		FCD860EE21B73597002C3AFD /* NSString+CalculateFontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860EC21B73597002C3AFD /* NSString+CalculateFontSize.m */; };
@@ -107,6 +108,8 @@
 		FCAACB9321B4098600346E41 /* MultiButtonsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiButtonsView.m; sourceTree = "<group>"; };
 		FCAACB9821B4D10400346E41 /* BdbCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCardTableViewCell.h; sourceTree = "<group>"; };
 		FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCardTableViewCell.m; sourceTree = "<group>"; };
+		FCC36E2B21B92B4900BEC025 /* UIViewController+QuickMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QuickMethod.h"; sourceTree = "<group>"; };
+		FCC36E2C21B92B4900BEC025 /* UIViewController+QuickMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QuickMethod.m"; sourceTree = "<group>"; };
 		FCC97B2D21B8CE9500CF943F /* homedatamock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homedatamock.json; sourceTree = "<group>"; };
 		FCD860E921B73596002C3AFD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		FCD860EA21B73596002C3AFD /* NSString+CalculateFontSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CalculateFontSize.h"; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 				FCD860EB21B73596002C3AFD /* UIColor+Hex.m */,
 				FCD8610021B780C7002C3AFD /* UIButton+ImageTileSpacing.h */,
 				FCD8610121B780C7002C3AFD /* UIButton+ImageTileSpacing.m */,
+				FCC36E2B21B92B4900BEC025 /* UIViewController+QuickMethod.h */,
+				FCC36E2C21B92B4900BEC025 /* UIViewController+QuickMethod.m */,
 			);
 			path = Catogery;
 			sourceTree = "<group>";
@@ -603,6 +608,7 @@
 				8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */,
 				FC54EF6D21B284BF00BB78AE /* BdbCard.m in Sources */,
 				FCD8610B21B7CA20002C3AFD /* HomeProductCollectionViewCell.m in Sources */,
+				FCC36E2D21B92B4900BEC025 /* UIViewController+QuickMethod.m in Sources */,
 				FC54EF5621B26A2B00BB78AE /* BdbTableViewController.m in Sources */,
 				FCD8610221B780C7002C3AFD /* UIButton+ImageTileSpacing.m in Sources */,
 				FCD8610521B78D6D002C3AFD /* BdbCollectionView.m in Sources */,

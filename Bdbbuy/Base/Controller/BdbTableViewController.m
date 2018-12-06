@@ -63,6 +63,8 @@
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     
+    self.tableView.height -= self.qTabbarHeight;
+    
     self.tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.view addSubview:self.tableView];
 }
@@ -101,7 +103,9 @@
         headerView.top = self.tableView.contentInset.top;
     }
     
-    self.tableView.top = headerView.top + headerView.height;
+    CGFloat originTop = self.tableView.top;
+    self.tableView.top = CGRectGetMaxY(headerView.frame);
+    self.tableView.height -= self.tableView.top - originTop;
     [self configTableViewInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
 }
 

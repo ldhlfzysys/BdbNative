@@ -12,6 +12,7 @@
 #import "UIView+Layout.h"
 #import "UIColor+Hex.h"
 #import "UIButton+ImageTileSpacing.h"
+#import "UIViewController+QuickMethod.h"
 
 // view
 #import "BdbCollectionView.h"

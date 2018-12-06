@@ -84,7 +84,6 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [cell.contentView addSubview:cardView];
             
-
         }
     }
     
@@ -107,7 +106,6 @@
         }
         
     }
-    
     return card.cardHeight < 0 ? 0 : card.cardHeight;
 }
 

@@ -108,18 +108,17 @@ static NSString * hpReuseIdentifier = @"HomeProductCollectionViewCell";
         if (_flowlayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
             // 垂直滚动
             if (_products && _products.count > 0) {
-                _collectionView.height = _collectionView.contentSize.height;
+                _collectionView.height = _collectionView.collectionViewLayout.collectionViewContentSize.height + topMargin;
             } else
             {
-                _collectionView.height = _flowlayout.itemSize.height + 2 * topMargin;
+                _collectionView.height = _flowlayout.itemSize.height +  topMargin;
             }
             
         } else {
             // 水平滚动
-            _collectionView.height = _flowlayout.itemSize.height + 2 * topMargin;
+            _collectionView.height = _flowlayout.itemSize.height + topMargin;
         }
     }
-    
     self.height = CGRectGetMaxY(_collectionView.frame);
     
 }
