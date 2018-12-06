@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, BdbCardType) {
+    // 服务器下发card
     BdbCardTypeHomeBanner = 1,
     BdbCardTypeHomeCatogery = 2,
     BdbCardTypeHomeProducts = 3,
-    BdbCardTypeHomeRecommend = 4
+    BdbCardTypeHomeRecommend = 4,
+    
+    
+    
+    
+    // 非服务器下发card
+    BdbCardTypeHomeProduct = 1001
+
 };
 
 @interface BdbCard : NSObject

@@ -70,15 +70,18 @@
             Class cardClass = NSClassFromString(card.cardClassID);
             NSAssert(![cardClass isKindOfClass:[BdbCardTableViewCell class]], @"Please use BdbCardTableViewCell");
             cell = [[cardClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId cellCard:card];
+            cell.contentView.frame = cell.bounds;
         } else {
             cell = [[BdbCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId cellCard:card];
+            cell.contentView.frame = cell.bounds;
             if (![card conformsToProtocol:@protocol(BdbCardProtocol)]) {
                 return nil;
             }
             id<BdbCardProtocol> cellCard = card;
             NSMutableDictionary *datadic = [NSMutableDictionary dictionaryWithDictionary:card.dataDic];
             [datadic setObject:@(cell.contentView.width) forKey:@"cellWidth"];
-            UIView *cardView = [cellCard viewWithCardData:card.dataDic];
+            UIView *cardView = [cellCard viewWithCardData:datadic];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [cell.contentView addSubview:cardView];
             
 

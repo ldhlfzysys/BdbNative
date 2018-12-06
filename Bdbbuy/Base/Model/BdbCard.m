@@ -37,6 +37,13 @@
         }
             break;
             
+            
+        case BdbCardTypeHomeProduct:
+        {
+            cardType = @"BdbHomeProductCard";
+        }
+            break;
+            
         default:
             break;
     }

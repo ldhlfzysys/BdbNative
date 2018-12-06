@@ -18,6 +18,8 @@
 		DE3350C221B0CA1900AED4F4 /* BdbTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3350C121B0CA1900AED4F4 /* BdbTabBarViewController.m */; };
 		DE3350C521B0CA8400AED4F4 /* BdbWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3350C421B0CA8400AED4F4 /* BdbWebViewController.m */; };
 		F52E6EB81EF9151EAA831135 /* Pods_Bdbbuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798CC941E14010EC0892DF4A /* Pods_Bdbbuy.framework */; };
+		FC28658421B90266003D70CE /* BdbHomeProductCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FC28658321B90266003D70CE /* BdbHomeProductCard.m */; };
+		FC28658721B90328003D70CE /* HomeProductItemView1.m in Sources */ = {isa = PBXBuildFile; fileRef = FC28658621B90328003D70CE /* HomeProductItemView1.m */; };
 		FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF4A21B107E400BB78AE /* BdbNetwork.m */; };
 		FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF5021B1718500BB78AE /* HomeDataProvider.m */; };
 		FC54EF5621B26A2B00BB78AE /* BdbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF5521B26A2B00BB78AE /* BdbTableViewController.m */; };
@@ -32,6 +34,7 @@
 		FC84FD6821B3ADB800D46A4E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84FD6721B3ADB800D46A4E /* UIView+Layout.m */; };
 		FCAACB9421B4098600346E41 /* MultiButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9321B4098600346E41 /* MultiButtonsView.m */; };
 		FCAACB9A21B4D10400346E41 /* BdbCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */; };
+		FCC97B2E21B8CE9500CF943F /* homedatamock.json in Resources */ = {isa = PBXBuildFile; fileRef = FCC97B2D21B8CE9500CF943F /* homedatamock.json */; };
 		FCD860ED21B73597002C3AFD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860EB21B73596002C3AFD /* UIColor+Hex.m */; };
 		FCD860EE21B73597002C3AFD /* NSString+CalculateFontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860EC21B73597002C3AFD /* NSString+CalculateFontSize.m */; };
 		FCD860F321B735DC002C3AFD /* HeaderToolScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD860F121B735DC002C3AFD /* HeaderToolScrollBar.m */; };
@@ -47,6 +50,7 @@
 		FCD8611921B89EC4002C3AFD /* BdbHomeCatogeryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611821B89EC4002C3AFD /* BdbHomeCatogeryCard.m */; };
 		FCD8611C21B89ED6002C3AFD /* BdbHomeProductsCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611B21B89ED6002C3AFD /* BdbHomeProductsCard.m */; };
 		FCD8611F21B89EF7002C3AFD /* BdbHomeRecommendCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD8611E21B89EF7002C3AFD /* BdbHomeRecommendCard.m */; };
+		FCFA833521B8D29F000C1D2C /* HomeProductView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFA833421B8D29F000C1D2C /* HomeProductView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,10 @@
 		DE3350C121B0CA1900AED4F4 /* BdbTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTabBarViewController.m; sourceTree = "<group>"; };
 		DE3350C321B0CA8400AED4F4 /* BdbWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbWebViewController.h; sourceTree = "<group>"; };
 		DE3350C421B0CA8400AED4F4 /* BdbWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbWebViewController.m; sourceTree = "<group>"; };
+		FC28658221B90266003D70CE /* BdbHomeProductCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbHomeProductCard.h; sourceTree = "<group>"; };
+		FC28658321B90266003D70CE /* BdbHomeProductCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeProductCard.m; sourceTree = "<group>"; };
+		FC28658521B90328003D70CE /* HomeProductItemView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductItemView1.h; sourceTree = "<group>"; };
+		FC28658621B90328003D70CE /* HomeProductItemView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductItemView1.m; sourceTree = "<group>"; };
 		FC54EF4921B107E400BB78AE /* BdbNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbNetwork.h; sourceTree = "<group>"; };
 		FC54EF4A21B107E400BB78AE /* BdbNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbNetwork.m; sourceTree = "<group>"; };
 		FC54EF4F21B1718500BB78AE /* HomeDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDataProvider.h; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 		FCAACB9321B4098600346E41 /* MultiButtonsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiButtonsView.m; sourceTree = "<group>"; };
 		FCAACB9821B4D10400346E41 /* BdbCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbCardTableViewCell.h; sourceTree = "<group>"; };
 		FCAACB9921B4D10400346E41 /* BdbCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbCardTableViewCell.m; sourceTree = "<group>"; };
+		FCC97B2D21B8CE9500CF943F /* homedatamock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homedatamock.json; sourceTree = "<group>"; };
 		FCD860E921B73596002C3AFD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		FCD860EA21B73596002C3AFD /* NSString+CalculateFontSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CalculateFontSize.h"; sourceTree = "<group>"; };
 		FCD860EB21B73596002C3AFD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -130,6 +139,8 @@
 		FCD8611B21B89ED6002C3AFD /* BdbHomeProductsCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeProductsCard.m; sourceTree = "<group>"; };
 		FCD8611D21B89EF7002C3AFD /* BdbHomeRecommendCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbHomeRecommendCard.h; sourceTree = "<group>"; };
 		FCD8611E21B89EF7002C3AFD /* BdbHomeRecommendCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbHomeRecommendCard.m; sourceTree = "<group>"; };
+		FCFA833321B8D29F000C1D2C /* HomeProductView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductView.h; sourceTree = "<group>"; };
+		FCFA833421B8D29F000C1D2C /* HomeProductView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +236,7 @@
 		8BAB53EB21AD80A600AC813A /* Bdbbuy */ = {
 			isa = PBXGroup;
 			children = (
+				FCC97B2C21B8CE5D00CF943F /* file */,
 				FCD860EF21B735A7002C3AFD /* Segment */,
 				FC84FD6921B3B1E300D46A4E /* Global.h */,
 				FC54EF5E21B270ED00BB78AE /* Common */,
@@ -354,8 +366,20 @@
 				FCD860F821B73814002C3AFD /* HomeProductCell.m */,
 				FCD8610921B7CA20002C3AFD /* HomeProductCollectionViewCell.h */,
 				FCD8610A21B7CA20002C3AFD /* HomeProductCollectionViewCell.m */,
+				FCFA833321B8D29F000C1D2C /* HomeProductView.h */,
+				FCFA833421B8D29F000C1D2C /* HomeProductView.m */,
+				FC28658521B90328003D70CE /* HomeProductItemView1.h */,
+				FC28658621B90328003D70CE /* HomeProductItemView1.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FCC97B2C21B8CE5D00CF943F /* file */ = {
+			isa = PBXGroup;
+			children = (
+				FCC97B2D21B8CE9500CF943F /* homedatamock.json */,
+			);
+			path = file;
 			sourceTree = "<group>";
 		};
 		FCD860EF21B735A7002C3AFD /* Segment */ = {
@@ -388,6 +412,8 @@
 				FCD8611821B89EC4002C3AFD /* BdbHomeCatogeryCard.m */,
 				FCD8611D21B89EF7002C3AFD /* BdbHomeRecommendCard.h */,
 				FCD8611E21B89EF7002C3AFD /* BdbHomeRecommendCard.m */,
+				FC28658221B90266003D70CE /* BdbHomeProductCard.h */,
+				FC28658321B90266003D70CE /* BdbHomeProductCard.m */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -463,6 +489,7 @@
 			files = (
 				B88DC72421B3F75400F6CD40 /* images.xcassets in Resources */,
 				8BAB53F921AD80A600AC813A /* LaunchScreen.storyboard in Resources */,
+				FCC97B2E21B8CE9500CF943F /* homedatamock.json in Resources */,
 				8BAB53F621AD80A600AC813A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,9 +582,12 @@
 				FC54EF5121B1718500BB78AE /* HomeDataProvider.m in Sources */,
 				FC76A03421B5771300139402 /* UIImage+Colorful.m in Sources */,
 				FCD860FF21B740DE002C3AFD /* HomeProductController.m in Sources */,
+				FCFA833521B8D29F000C1D2C /* HomeProductView.m in Sources */,
+				FC28658421B90266003D70CE /* BdbHomeProductCard.m in Sources */,
 				FC84FD6221B39D3F00D46A4E /* HomeSearchView.m in Sources */,
 				FC54EF7421B2873300BB78AE /* BdbTableViewCell.m in Sources */,
 				FC54EF6321B271FB00BB78AE /* UIDevice+BdbHelper.m in Sources */,
+				FC28658721B90328003D70CE /* HomeProductItemView1.m in Sources */,
 				FCD860ED21B73597002C3AFD /* UIColor+Hex.m in Sources */,
 				FCD860FC21B73DB8002C3AFD /* BdbLineTableViewCell.m in Sources */,
 				FCD860F921B73814002C3AFD /* HomeProductCell.m in Sources */,

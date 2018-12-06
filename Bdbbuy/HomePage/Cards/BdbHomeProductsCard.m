@@ -7,17 +7,47 @@
 //
 
 #import "BdbHomeProductsCard.h"
+#import "HomeProductView.h"
+
+@interface BdbHomeProductsCard ()
+@property (nonatomic, weak) HomeProductView * productView;
+@end
 
 @implementation BdbHomeProductsCard
+
 - (UIView *)viewWithCardData:(NSDictionary *)data
 {
-    UIView *view = nil;
+    CGFloat cellWidth = [data objectForKey:@"cellWidth"] ? [[data objectForKey:@"cellWidth"] floatValue] : [UIScreen mainScreen].bounds.size.width;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    CGFloat margin = 5;
+    flowLayout.minimumLineSpacing = margin;
+    flowLayout.itemSize = CGSizeMake((cellWidth - 5 * margin) / 4.5, 100);
+    
+    HomeProductView *view = [[HomeProductView alloc] initWithFlowLayout:flowLayout];
+    _productView = view;
+    view.top = 0;
+    view.left = 0;
+    view.width = cellWidth;
+    
+    NSArray *productsArr = [data objectForKey:@"data"];
+    NSMutableArray *cards = [NSMutableArray arrayWithCapacity:productsArr.count ];
+    for (NSDictionary *dic in productsArr) {
+        BdbCard *card = [[NSClassFromString([BdbCard getCardTypeWithType:BdbCardTypeHomeProduct]) alloc] init];
+        card.dataDic = dic;
+        [cards addObject:card];
+    }
+    view.headerBtnHeight = 100;
+    view.headerButtonImageName = @"banner1";
+    view.products = [cards copy];
+    view.scrollEnable = YES;
+    
     return view;
 }
 
 
 - (CGFloat)computeCardHeight
 {
-    return 1;
+    return [_productView getViewHeight];
 }
 @end

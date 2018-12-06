@@ -26,10 +26,6 @@
 //    配置搜索条
     [self configSeachView];
     __weak typeof(self) weakSelf = self;
-//    [self configBannerView];
-//    [self configCatogeryView];
-//    [self configProductView];
-//    self.cards = [self.homeCards copy];
 #warning 网速太差，本地debug时暂停网络请求
     [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
         if (compelet) {

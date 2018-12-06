@@ -10,14 +10,14 @@
 #import "MultiButtonsView.h"
 
 
-static NSUInteger CatogeryHeight = 150;
+static NSUInteger CatogeryHeight = 130;
 @implementation BdbHomeCatogeryCard
 - (UIView *)viewWithCardData:(NSDictionary *)data
 {
     NSArray *dataArr = [data objectForKey:@"data"];
     NSMutableArray *buttonInfoArr = [NSMutableArray array];
     
-    for (int i = 0; i < dataArr.count; i++)
+    for (int i = 0; i < dataArr.count;  i++)
     {
         NSDictionary *catagoryDic = dataArr[i];
         ButtonInfo *info = [[ButtonInfo alloc] init];
@@ -29,7 +29,8 @@ static NSUInteger CatogeryHeight = 150;
     }
     int maxLineCount = 5;
     CGFloat cellWidth = [data objectForKey:@"cellWidth"] ? [[data objectForKey:@"cellWidth"] floatValue] : [UIScreen mainScreen].bounds.size.width;
-    MultiButtonsView *multiButtonView = [[MultiButtonsView alloc] initWithFrame:CGRectMake(0,0,cellWidth,CatogeryHeight) WithButtonInfos:buttonInfoArr  WithMaxLineCount:maxLineCount];
+    CGFloat margin = 10;
+    MultiButtonsView *multiButtonView = [[MultiButtonsView alloc] initWithFrame:CGRectMake(margin,0,cellWidth - 2 * margin,CatogeryHeight) WithButtonInfos:buttonInfoArr  WithMaxLineCount:maxLineCount];
     multiButtonView.delegate = self.delegate;
     return multiButtonView;
 }

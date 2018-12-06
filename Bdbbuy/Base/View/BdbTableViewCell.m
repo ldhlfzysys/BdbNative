@@ -13,6 +13,16 @@
 
 @synthesize delegate;
 
+- (void)setFrame:(CGRect)frame{
+    // 解决右侧留白问题
+    frame.size.width = [UIScreen mainScreen].bounds.size.width;
+    frame.origin.x = 0;
+    
+    [super setFrame:frame];
+    
+}
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
