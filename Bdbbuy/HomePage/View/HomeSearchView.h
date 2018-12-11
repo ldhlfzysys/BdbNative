@@ -10,12 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HomeSearchView;
+@protocol HomeSearchViewDelegate <NSObject>
+- (void)homesearchview:(HomeSearchView *)searchView didClickSearchButton:(UIButton *)searchButton WithSearchText:(NSString *)searchText;
+
+@end
+
+
 @interface HomeSearchView : UIView
 @property (nonatomic, assign) NSInteger seachViewHeight;
 @property (nonatomic, assign) NSInteger seachEngineMargin;
 @property (nonatomic, strong) NSString *backgroundImageName;
 @property (nonatomic, strong) NSString *placeHolderName;
 @property (nonatomic, strong) NSString *searchButtonText;
+@property (nonatomic, weak) id<HomeSearchViewDelegate> delegate;
 
 - (instancetype)initWithSeachEngineMargin:(NSInteger)margin
                   WithBackgroundImageName:(NSString *)imageName

@@ -37,9 +37,8 @@
         card.dataDic = dic;
         [cards addObject:card];
     }
-    view.headerBtnHeight = 100;
-    view.headerButtonImageName = @"banner1";
-//    view.headerButtonImageName = [data objectForKey:@"image"];
+    view.headerBtnHeight = 130;
+    view.headerButtonImageName = [data objectForKey:@"image"];
     view.products = [cards copy];
     view.scrollEnable = YES;
     

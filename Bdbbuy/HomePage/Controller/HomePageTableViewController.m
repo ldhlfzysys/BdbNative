@@ -12,8 +12,9 @@
 #import "HomeDataProvider.h"
 
 
+static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 
-@interface HomePageTableViewController ()<MultiButtonsViewDelegate>
+@interface HomePageTableViewController ()<MultiButtonsViewDelegate, HomeSearchViewDelegate>
 @property (nonatomic,strong) NSMutableArray *homeCards;
 
 @end
@@ -51,6 +52,7 @@
     searchView.frame = CGRectMake(0, self.tableView.top, self.view.width, 44);
     [self.view addSubview:searchView];
     [self configHeaderView:searchView];
+    searchView.delegate = self;
     
 }
 
@@ -59,7 +61,7 @@
     for (NSDictionary *dic in [HomeDataProvider sharedProvider].homeData) {
         NSInteger type = [[dic objectForKey:@"type"] integerValue];
         BdbCard *card = [[NSClassFromString([BdbCard getCardTypeWithType:type]) alloc] init];
-        card.dataDic = [NSDictionary dictionaryWithObject:[dic objectForKey:@"data"] forKey:@"data"];
+        card.dataDic = dic;
         [self.homeCards addObject:card];
     }
 }
@@ -82,6 +84,15 @@
     [self resignFirstResponder];
     [self.navigationController pushViewController:category animated:NO];
     
+}
+
+-(void)homesearchview:(HomeSearchView *)searchView didClickSearchButton:(UIButton *)searchButton WithSearchText:(nonnull NSString *)searchText
+{
+    NSString *url = [NSString stringWithFormat:@"%@?search_key=%@", searchBaseURL, searchText];
+    BdbWebViewController *searchVC = [[BdbWebViewController alloc] initWithAddress:url];
+    searchVC.title = @"搜索结果";
+    [searchView resignFirstResponder];
+    [self.navigationController pushViewController:searchVC animated:NO];
 }
 
 
