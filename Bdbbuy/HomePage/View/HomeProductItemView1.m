@@ -31,13 +31,13 @@ static CGFloat spaceMargin = 5;
 
 - (void)configProductViewWithProductImage:(NSString *)productImageName WithProductName:(NSString *)productName WithPrice:(NSString *)price
 {
-    if ([productName hasPrefix:@"http"]) {
+    if ([productImageName hasPrefix:@"http"]) {
         [self.productImage sd_setImageWithURL:[NSURL URLWithString:productImageName]];
     } else {
         [self.productImage setImage:[UIImage imageNamed:productImageName]];
     }
     
-    
+
     
     self.productLable.font = [UIFont systemFontOfSize:11];
     self.productLable.numberOfLines = 2;
@@ -99,6 +99,11 @@ static CGFloat spaceMargin = 5;
     self.productImage.left = 0;
     self.productImage.width = self.backgroundButton.width;
     self.productImage.height = self.backgroundButton.height * 0.6;
+    
+    if (self.productImage.width > self.productImage.height * 1.2) {
+        self.productImage.width = self.productImage.height * 1.2;
+        self.productImage.left = (self.backgroundButton.width - self.productImage.width) * 0.5;
+    }
     
     [self.productLable sizeToFit];
     self.productLable.left = 0;
