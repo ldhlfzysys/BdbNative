@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeProductItemView1 : UIView
 
+@property (nonatomic, copy) NSString *productURL;
+- (void)configProductViewWithProductImage:(NSString *)productImageName WithProductName:(NSString *)productName WithPrice:(NSString *)price;
+- (void)configProductViewWithProductImage:(NSString *)productImageName WithProductName:(NSString *)productName WithProductFont:(UIFont *)productFont  WithPrice:(NSString *)price WithPriceFont:(UIFont *)priceFont;
 
 @end
 

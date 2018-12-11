@@ -145,8 +145,8 @@ static NSString * hpReuseIdentifier = @"HomeProductCollectionViewCell";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeProductCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:hpReuseIdentifier forIndexPath:indexPath];
-    BdbCard *card = [self.products objectAtIndex:indexPath.row];
     
+    BdbCard *card = [self.products objectAtIndex:indexPath.row];
     card.delegate = self;
     if (![card conformsToProtocol:@protocol(BdbCardProtocol)]) {
         return nil;
@@ -155,8 +155,14 @@ static NSString * hpReuseIdentifier = @"HomeProductCollectionViewCell";
     NSMutableDictionary *datadic = [NSMutableDictionary dictionaryWithDictionary:card.dataDic];
     [datadic setObject:@(_flowlayout.itemSize.width) forKey:@"cellWidth"];
     [datadic setObject:@(_flowlayout.itemSize.height) forKey:@"cellHeight"];
-    UIView *cardView = [cellCard viewWithCardData:datadic];
-    [cell.contentView addSubview:cardView];
+    if (cell.contentView.subviews.count <= 0) {
+        // 复用
+        UIView *cardView = [cellCard viewWithCardData:datadic];
+        [cell.contentView addSubview:cardView];
+    } else {
+        [cellCard refreshView:cell.contentView.subviews[0] WithData:datadic];
+    }
+    
     return cell;
 }
 

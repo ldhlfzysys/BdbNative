@@ -11,7 +11,8 @@
 
 
 static NSString * BdbBaseURL = @"https://m.bdbbuy.com/";
-static NSTimeInterval BdbTimeout = 300;
+//static NSString * BdbBaseURL = @"http://localhost:1118/";
+static NSTimeInterval BdbTimeout = 60;
 
 @implementation BdbNetwork
 

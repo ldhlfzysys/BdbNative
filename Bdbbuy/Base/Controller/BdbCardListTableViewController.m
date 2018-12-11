@@ -85,6 +85,14 @@
             [cell.contentView addSubview:cardView];
             
         }
+    } else {
+        if ([card conformsToProtocol:@protocol(BdbCardProtocol)]) {
+            id<BdbCardProtocol> cellCard = card;
+            cell.contentView.frame = cell.bounds;
+            NSMutableDictionary *datadic = [NSMutableDictionary dictionaryWithDictionary:card.dataDic];
+            [datadic setObject:@(cell.contentView.width) forKey:@"cellWidth"];
+            [cellCard refreshView:cell.contentView.subviews[0] WithData:datadic];
+        }
     }
     
     return cell;

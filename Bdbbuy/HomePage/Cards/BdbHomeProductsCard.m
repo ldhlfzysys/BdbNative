@@ -22,27 +22,36 @@
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     CGFloat margin = 5;
     flowLayout.minimumLineSpacing = margin;
-    flowLayout.itemSize = CGSizeMake((cellWidth - 5 * margin) / 4.5, 100);
+    flowLayout.itemSize = CGSizeMake((cellWidth - 5 * margin) / 4.5, 130);
     
     HomeProductView *view = [[HomeProductView alloc] initWithFlowLayout:flowLayout];
     _productView = view;
+    [self refreshView:view WithData:data];
+    
+    return view;
+}
+
+-(void)refreshView:(UIView *)view WithData:(NSDictionary *)data
+{
+    CGFloat cellWidth = [data objectForKey:@"cellWidth"] ? [[data objectForKey:@"cellWidth"] floatValue] : [UIScreen mainScreen].bounds.size.width;
     view.top = 0;
     view.left = 0;
     view.width = cellWidth;
-    
     NSArray *productsArr = [data objectForKey:@"data"];
     NSMutableArray *cards = [NSMutableArray arrayWithCapacity:productsArr.count ];
     for (NSDictionary *dic in productsArr) {
         BdbCard *card = [[NSClassFromString([BdbCard getCardTypeWithType:BdbCardTypeHomeProduct]) alloc] init];
-        card.dataDic = dic;
+        NSMutableDictionary *cardDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+        [cardDic setValue:@(11) forKey:@"productFontSize"];
+        [cardDic setValue:@(13) forKey:@"priceFontSize"];
+        card.dataDic = [cardDic copy];
         [cards addObject:card];
     }
-    view.headerBtnHeight = 130;
-    view.headerButtonImageName = [data objectForKey:@"image"];
-    view.products = [cards copy];
-    view.scrollEnable = YES;
     
-    return view;
+    ((HomeProductView *)view).headerBtnHeight = 130;
+    ((HomeProductView *)view).headerButtonImageName = [data objectForKey:@"image"];
+    ((HomeProductView *)view).products = [cards copy];
+    ((HomeProductView *)view).scrollEnable = YES;
 }
 
 

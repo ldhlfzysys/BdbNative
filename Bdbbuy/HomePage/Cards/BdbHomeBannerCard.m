@@ -24,6 +24,16 @@ static NSUInteger BannerHeight = 120;
     return cycleScrollView;
 }
 
+-(void)refreshView:(UIView *)view WithData:(NSDictionary *)data
+{
+    NSArray *bannerArr = [data objectForKey:@"data"];
+    CGFloat cellWidth = [data objectForKey:@"cellWidth"] ? [[data objectForKey:@"cellWidth"] floatValue] : [UIScreen mainScreen].bounds.size.width;
+    
+    CGRect frame = CGRectMake(0, 0, cellWidth, BannerHeight);
+    view.frame = frame;
+    ((SDCycleScrollView *)view).localizationImageNamesGroup = bannerArr;
+}
+
 
 - (CGFloat)computeCardHeight
 {

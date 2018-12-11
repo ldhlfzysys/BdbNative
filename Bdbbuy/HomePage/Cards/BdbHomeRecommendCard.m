@@ -27,6 +27,13 @@
     
     HomeProductView *view = [[HomeProductView alloc] initWithFlowLayout:flowLayout];
     _productView = view;
+    [self refreshView:view WithData:data];
+    return view;
+}
+
+-(void)refreshView:(UIView *)view WithData:(NSDictionary *)data
+{
+    CGFloat cellWidth = [data objectForKey:@"cellWidth"] ? [[data objectForKey:@"cellWidth"] floatValue] : [UIScreen mainScreen].bounds.size.width;
     view.top = 0;
     view.left = 0;
     view.width = cellWidth;
@@ -35,15 +42,16 @@
     NSMutableArray *cards = [NSMutableArray arrayWithCapacity:productsArr.count ];
     for (NSDictionary *dic in productsArr) {
         BdbCard *card = [[NSClassFromString([BdbCard getCardTypeWithType:BdbCardTypeHomeProduct]) alloc] init];
-        card.dataDic = dic;
+        NSMutableDictionary *cardDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+        [cardDic setValue:@(13) forKey:@"productFontSize"];
+        [cardDic setValue:@(16) forKey:@"priceFontSize"];
+        card.dataDic = [cardDic copy];
         [cards addObject:card];
     }
-    view.headerBtnHeight = 80;
-    view.headerButtonImageName = @"banner2";
-    view.products = [cards copy];
-    view.scrollEnable = NO;
-    
-    return view;
+    ((HomeProductView *)view).headerBtnHeight = 80;
+    ((HomeProductView *)view).headerButtonImageName = [data objectForKey:@"image"];
+    ((HomeProductView *)view).products = [cards copy];
+    ((HomeProductView *)view).scrollEnable = NO;
 }
 
 

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 - (UIView *)viewWithCardData:(NSDictionary *)data;
+- (void)refreshView:(UIView *)view WithData:(NSDictionary *)data;
 
 @end
 
