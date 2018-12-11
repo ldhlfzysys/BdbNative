@@ -24,11 +24,17 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 //    配置搜索条
     [self configSeachView];
     __weak typeof(self) weakSelf = self;
-#warning 网速太差，本地debug时暂停网络请求
+    [[HomeDataProvider sharedProvider] loadCacheDataWithCompletionBlock:^(BOOL compelet) {
+        if (compelet) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf configTableView];
+            strongSelf.cards = [strongSelf.homeCards copy];
+        }
+    }];
+    
     [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
         if (compelet) {
             __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -82,7 +88,17 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 #pragma mark - Delegate
 -(void)multibuttonsview:(MultiButtonsView *)buttonsView DidSelectButton:(NSInteger)index
 {
-    NSDictionary *catagoryDic = [HomeDataProvider sharedProvider].catogeryInfos[index];
+    
+    NSArray *catogeryInfos = nil;
+    for (NSDictionary *dic in [HomeDataProvider sharedProvider].homeData) {
+        int type = [dic[@"type"] intValue];
+        if (type == 2) {
+            catogeryInfos = dic[@"data"];
+            break;
+        }
+    }
+    
+    NSDictionary *catagoryDic = catogeryInfos[index];
     BdbWebViewController *category = [[BdbWebViewController alloc] initWithAddress:catagoryDic[@"url"]];
     category.title = catagoryDic[@"name"];
     [self resignFirstResponder];

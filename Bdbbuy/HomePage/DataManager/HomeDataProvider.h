@@ -12,12 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeDataProvider : NSObject
 @property (nonatomic, strong) NSArray *homeData;
-@property (nonatomic, strong) NSArray *bannerUrls;
-@property (nonatomic, strong) NSArray *catogeryInfos;
 
 + (instancetype)sharedProvider;
-- (void)requestHomeDataWithCompletionBlock:(void (^)(BOOL compelet))completion;
 
+- (void)requestHomeDataWithCompletionBlock:(void (^)(BOOL compelet))completion;
+- (void)loadCacheDataWithCompletionBlock:(void (^)(BOOL compelet))completion;
 @end
 
 NS_ASSUME_NONNULL_END

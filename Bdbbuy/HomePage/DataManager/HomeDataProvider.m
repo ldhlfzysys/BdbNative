@@ -9,6 +9,8 @@
 #import "HomeDataProvider.h"
 #import "BdbNetwork.h"
 
+static NSString *homeDataCacheFileName = @"homedata.plist";
+
 @implementation HomeDataProvider
 
 static HomeDataProvider * provider = nil;
@@ -33,23 +35,7 @@ static HomeDataProvider * provider = nil;
         if (success) {
             NSArray *homeData = (NSArray *)result;
             strongSelf.homeData = homeData;
-            for (NSDictionary *dic in homeData) {
-                int type = [dic[@"type"] intValue];
-                switch (type) {
-                    case 1:
-                        strongSelf.bannerUrls = dic[@"data"];
-                        break;
-                    case 2:
-                        strongSelf.catogeryInfos = dic[@"data"];
-                        break;
-                    case 3:
-
-                        break;
-                    default:
-                        break;
-                }
-            }
-
+            [strongSelf saveDataTocache:homeData];
             completion(YES);
         }
     }];
@@ -70,5 +56,31 @@ static HomeDataProvider * provider = nil;
     self.homeData = resultArr;
 }
 
+
+- (void)saveDataTocache:(NSArray *)dataArr
+{
+    [NSKeyedArchiver archiveRootObject:dataArr toFile:[self getCatcheFileName]];
+}
+
+- (void)loadCacheDataWithCompletionBlock:(void (^)(BOOL compelet))completion
+{
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self getCatcheFileName]]) {
+        self.homeData = [NSKeyedUnarchiver unarchiveObjectWithFile:[self getCatcheFileName]];
+        completion(YES);
+    } else
+    {
+        completion(NO);
+    }
+    
+    
+}
+
+- (NSString *)getCatcheFileName
+{
+    NSArray *array =  NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = array[0];
+    NSString *filePathName = [cachePath stringByAppendingPathComponent:homeDataCacheFileName];
+    return filePathName;
+}
 
 @end

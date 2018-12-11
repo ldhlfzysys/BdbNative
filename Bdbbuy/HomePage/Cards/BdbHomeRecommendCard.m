@@ -23,7 +23,7 @@
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     CGFloat margin = 10;
     flowLayout.minimumLineSpacing = margin;
-    flowLayout.itemSize = CGSizeMake((cellWidth - 3 * margin) * 0.5, 170);
+    flowLayout.itemSize = CGSizeMake((cellWidth - 3 * margin) * 0.5, 200);
     
     HomeProductView *view = [[HomeProductView alloc] initWithFlowLayout:flowLayout];
     _productView = view;
