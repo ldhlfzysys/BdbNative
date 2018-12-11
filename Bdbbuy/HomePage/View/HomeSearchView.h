@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
                   WithBackgroundImageName:(NSString *)imageName
                       WithplaceHolderName:(NSString *)placeHolderName
                      WithSearchButtonText:(NSString *)searchButtonText;
+
+- (void)clearSearchView;
 @end
 
 NS_ASSUME_NONNULL_END

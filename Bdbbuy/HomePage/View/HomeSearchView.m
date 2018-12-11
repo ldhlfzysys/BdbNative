@@ -17,6 +17,11 @@
     
 }
 
+- (void)clearSearchView
+{
+    _inputView.text = @"";
+}
+
 - (instancetype)initWithSeachEngineMargin:(NSInteger)margin
                  WithBackgroundImageName:(NSString *)imageName
                      WithplaceHolderName:(NSString *)placeHolderName
@@ -106,6 +111,7 @@
 
 - (void)searchButtonClick:(UIButton *)btn
 {
+    [_inputView resignFirstResponder];
     if ([self.delegate respondsToSelector:@selector(homesearchview:didClickSearchButton:WithSearchText:)]) {
         [self.delegate homesearchview:self didClickSearchButton:btn WithSearchText:_inputView.text];
     }

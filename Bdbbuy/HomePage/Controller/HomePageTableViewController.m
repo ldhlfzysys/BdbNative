@@ -15,7 +15,8 @@
 static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 
 @interface HomePageTableViewController ()<MultiButtonsViewDelegate, HomeSearchViewDelegate>
-@property (nonatomic,strong) NSMutableArray *homeCards;
+@property (nonatomic, strong) NSMutableArray *homeCards;
+@property (nonatomic, strong) HomeSearchView *searchView;
 
 @end
 
@@ -42,7 +43,9 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    if (self.searchView) {
+        [self.searchView clearSearchView];
+    }
     
 }
 
@@ -52,6 +55,7 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
     searchView.frame = CGRectMake(0, self.tableView.top, self.view.width, 44);
     [self.view addSubview:searchView];
     [self configHeaderView:searchView];
+    self.searchView = searchView;
     searchView.delegate = self;
     
 }
