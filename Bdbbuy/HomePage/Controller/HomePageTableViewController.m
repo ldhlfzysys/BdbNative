@@ -41,7 +41,7 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
             __strong typeof(weakSelf) strongSelf = weakSelf;
             [strongSelf configTableView];
             strongSelf.cards = [strongSelf.homeCards copy];
-
+            
         }
     }];
     
@@ -53,7 +53,6 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
     if (self.searchView) {
         [self.searchView clearSearchView];
     }
-    
 }
 
 - (void)configSeachView
