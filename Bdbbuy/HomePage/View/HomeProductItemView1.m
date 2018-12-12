@@ -94,7 +94,7 @@ static CGFloat spaceMargin = 5;
     
     if (self.productImage.width > self.productImage.height * 1.2) {
         self.productImage.width = self.productImage.height * 1.2;
-        self.productImage.left = (self.width - self.productImage.width) * 0.5;
+        self.productImage.left = 0;
     }
     
     [self.productLable sizeToFit];
