@@ -10,8 +10,8 @@
 #import "AFNetworking.h"
 
 
-//static NSString * BdbBaseURL = @"https://m.bdbbuy.com/";
-static NSString * BdbBaseURL = @"http://localhost:1118/";
+static NSString * BdbBaseURL = @"https://m.bdbbuy.com/";
+//static NSString * BdbBaseURL = @"http://localhost:1118/";
 static NSTimeInterval BdbTimeout = 60;
 
 @implementation BdbNetwork
