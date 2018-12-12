@@ -59,12 +59,12 @@
     if ([card isKindOfClass:[BdbMultiCard class]]) {
         card = [((BdbMultiCard *)card).subcards objectAtIndex:indexPath.row];
     }
+    card.delegate = self;
     
     NSString *reuseId = (card.cardClassID && NSClassFromString(card.cardClassID) != nil) ? card.cardClassID : NSStringFromClass([card class]);
     
     BdbCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     if (!cell) {
-        card.delegate = self;
         if (card.cardClassID && NSClassFromString(card.cardClassID) != nil)
         {
             Class cardClass = NSClassFromString(card.cardClassID);

@@ -132,7 +132,7 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 {
     if (url && url.length > 0 && [url hasPrefix:@"http"]) {
         BdbWebViewController *product = [[BdbWebViewController alloc] initWithAddress:url];
-        product.title = @"分类";
+        product.title = @"详情";
         [self resignFirstResponder];
         [self.navigationController pushViewController:product animated:NO];
     }

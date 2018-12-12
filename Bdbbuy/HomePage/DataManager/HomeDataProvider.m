@@ -26,9 +26,6 @@ static HomeDataProvider * provider = nil;
 - (void)requestHomeDataWithCompletionBlock:(void (^)(BOOL compelet))completion
 {
     __weak typeof(self) weakSelf = self;
-#warning test
-//    [self mockData];
-//    completion(YES);
     
     [BdbNetwork sendRequestWithType:BdbNetworkRequestTypeGET WithPath:@"api" WithParam:nil compeletion:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * _Nonnull error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
