@@ -167,5 +167,83 @@
 }
 
 
+#pragma mark - 上下拉刷新方法----
+- (void)setShowRefreshHeader:(BOOL)showRefreshHeader
+{
+    if (_showRefreshHeader != showRefreshHeader) {
+        _showRefreshHeader = showRefreshHeader;
+        if (_showRefreshHeader) {
+            __weak typeof(self) weakSelf = self;
+            MJRefreshGifHeader *gifHeader = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+                [weakSelf.tableView.mj_header beginRefreshing];
+                [weakSelf loadPreMoreData];
+            }];
+            
+            NSMutableArray *pullingImages = [NSMutableArray array];
+            for (int i = 1; i <= 24; i++) {
+                NSString *imageName = [NSString stringWithFormat:@"dropdown_anim__000%d", i];
+                UIImage *image = [UIImage imageNamed:imageName];
+                if (image) {
+                    [pullingImages addObject:image];
+                }
+            }
+            [gifHeader setImages:pullingImages forState:MJRefreshStatePulling];
+            
+            NSMutableArray *loadingImages = [NSMutableArray array];
+            for (int i = 1; i <= 3; i++) {
+                NSString *imageName = [NSString stringWithFormat:@"dropdown_loading_0%d", i];
+                UIImage *image = [UIImage imageNamed:imageName];
+                if (image) {
+                    [loadingImages addObject:image];
+                }
+                
+            }
+            [gifHeader setImages:loadingImages forState:MJRefreshStateRefreshing];
+            
+            gifHeader.lastUpdatedTimeLabel.hidden = YES;
+            gifHeader.stateLabel.hidden = YES;
+            
+            self.tableView.mj_header = gifHeader;
+        } else{
+            self.tableView.mj_header.hidden = YES;
+        }
+    }
+}
+
+- (void)setShowRefreshFooter:(BOOL)showRefreshFooter
+{
+    if (_showRefreshFooter != showRefreshFooter) {
+        _showRefreshFooter = showRefreshFooter;
+        if (_showRefreshFooter) {
+            __weak typeof(self) weakSelf = self;
+            MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+                //开始刷新
+                [weakSelf.tableView.mj_footer beginRefreshing];
+                [weakSelf loadMoreData];
+            }];
+            self.tableView.mj_footer = footer;
+        } else {
+            //移除下拉刷新
+            self.tableView.mj_footer.hidden = NO;
+        }
+    }
+}
+
+- (void)loadPreMoreData {
+    _pageNo = 0;
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)loadMoreData {
+    _pageNo += 1;
+    [self.tableView.mj_footer beginRefreshing];
+}
+
+
+- (void)requestMoreData {
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
 
 @end

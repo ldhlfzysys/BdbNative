@@ -35,16 +35,8 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
             strongSelf.cards = [strongSelf.homeCards copy];
         }
     }];
-    
-    [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
-        if (compelet) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf configTableView];
-            strongSelf.cards = [strongSelf.homeCards copy];
-            
-        }
-    }];
-    
+    self.showRefreshHeader = YES;
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -53,7 +45,22 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
     if (self.searchView) {
         [self.searchView clearSearchView];
     }
+    
 }
+
+-(void)loadPreMoreData
+{
+    __weak typeof(self) weakSelf = self;
+    [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
+        if (compelet) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf configTableView];
+            strongSelf.cards = [strongSelf.homeCards copy];
+            [strongSelf.tableView.mj_header endRefreshing];
+        }
+    }];
+}
+
 
 - (void)configSeachView
 {
