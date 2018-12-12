@@ -13,17 +13,38 @@ static int minLineCount = 2;
 static int maxLineCount = 6;
 
 @interface MultiButton : UIButton
-
 @end
 @implementation MultiButton
+- (CGRect)imageRectForContentRect:(CGRect)contentRect
+{
+    
+    CGFloat width = contentRect.size.width * 0.6;
+    CGFloat height = width;
+    CGFloat x = contentRect.size.width * 0.3 * 0.5;
+    CGFloat y = 5;
+    return CGRectMake(x, y, width, height);
+}
 
+- (CGRect)titleRectForContentRect:(CGRect)contentRect
+{
+    CGFloat width = contentRect.size.width;
+    CGFloat height = 12;
+    CGFloat x = 0;
+    CGFloat y = 5 + contentRect.size.width * 0.6 + 5;
+    
 
+    return CGRectMake(x, y, width, height);
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    
+}
 
 @end
 
 
 @interface ButtonInfo () <NSCoding>
-//+ima
+
 @end
 
 @implementation ButtonInfo
@@ -95,20 +116,47 @@ static int maxLineCount = 6;
     
     for (int i = 0; i < self.buttonInfos.count; i++) {
         ButtonInfo *info = self.buttonInfos[i];
-        MultiButton *btn = [MultiButton buttonWithType:UIButtonTypeCustom];
+        NSString *className = NSStringFromClass([UIButton class]);
+        if (info.vertical) {
+            className = NSStringFromClass([MultiButton class]);
+        }
+        
+        UIButton *btn = [NSClassFromString(className) buttonWithType:UIButtonTypeCustom];
+        btn.height = buttonH;
+        btn.width = buttonW;
+        btn.left = (i % self.maxLineCount) * buttonW;
+        btn.top = (i / self.maxLineCount) * buttonH;
+        btn.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        
         if (info.title) {
             [btn setTitle:info.title forState:UIControlStateNormal];
+        }
+        
+        if (info.titleColor) {
+            [btn setTitleColor:info.titleColor forState:UIControlStateNormal];
+        } else {
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        
+        btn.titleLabel.font = info.titleFont ? : [UIFont systemFontOfSize:10];
+        
+        if (info.imageUrl) {
+            NSURL *url = [NSURL URLWithString:info.imageUrl];
+            [btn sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:info.placeHolderImage]];
+        }
+        
+        if (info.isVertical) {
+            [btn layoutButtonWithEdgeInsetsStyle:BDBButtonEdgeInsetsStyleTop imageTitleSpace:8];
+            [btn.titleLabel setTextAlignment:NSTextAlignmentCenter];
         }
         if (info.normalImageName) {
             if ([info.normalImageName hasPrefix:@"http"]) {
                 NSURL *url = [NSURL URLWithString:info.normalImageName];
+                
                 [btn sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:info.placeHolderImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                     if (info.isVertical) {
-                        btn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-                        btn.contentHorizontalAlignment = UIControlContentVerticalAlignmentCenter;
-                        CGFloat margin = 5;
-                        btn.titleEdgeInsets = UIEdgeInsetsMake(0, -btn.imageView.width, -btn.imageView.height - margin, 0);
-                        btn.imageEdgeInsets = UIEdgeInsetsMake(-btn.titleLabel.height - margin, 0, 0, -btn.titleLabel.width);
+                        
+                        [btn layoutButtonWithEdgeInsetsStyle:BDBButtonEdgeInsetsStyleTop imageTitleSpace:8];
                     }
                 }];
             } else {
@@ -126,28 +174,6 @@ static int maxLineCount = 6;
             }
         }
         
-        if (info.imageUrl) {
-            NSURL *url = [NSURL URLWithString:info.imageUrl];
-            [btn sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:info.placeHolderImage]];
-        }
-        if (info.titleColor) {
-            [btn setTitleColor:info.titleColor forState:UIControlStateNormal];
-        } else {
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        }
-        
-        btn.titleLabel.font = info.titleFont ? : [UIFont systemFontOfSize:10];
-        
-        [btn sizeToFit];
-        
-        btn.height = buttonH;
-        btn.width = buttonW;
-        btn.left = (i % self.maxLineCount) * buttonW;
-        btn.top = (i / self.maxLineCount) * buttonH;
-        
-        if (info.isVertical) {
-            [btn layoutButtonWithEdgeInsetsStyle:BDBButtonEdgeInsetsStyleTop imageTitleSpace:5];
-        }
         
         [self addSubview:btn];
         [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];

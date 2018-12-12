@@ -10,7 +10,7 @@
 #import "MultiButtonsView.h"
 
 
-static NSUInteger CatogeryHeight = 130;
+static NSUInteger CatogeryHeight = 150;
 @implementation BdbHomeCatogeryCard
 - (UIView *)viewWithCardData:(NSDictionary *)data
 {
@@ -23,7 +23,7 @@ static NSUInteger CatogeryHeight = 130;
         ButtonInfo *info = [[ButtonInfo alloc] init];
         info.title = catagoryDic[@"name"];
         info.normalImageName = catagoryDic[@"image"];
-        info.placeHolderImage = @"user";
+//        info.normalImageName = @"user";
         info.vertical = YES;
         [buttonInfoArr addObject:info];
     }

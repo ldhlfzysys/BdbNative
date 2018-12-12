@@ -38,6 +38,7 @@
         {
             imageEdgeInsets = UIEdgeInsetsMake(-labelHeight-space/2.0, 0, 0, -labelWidth);
             labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith, -imageHeight-space/2.0, 0);
+        
         }
             break;
         case BDBButtonEdgeInsetsStyleLeft:
@@ -64,5 +65,6 @@
     // 4. 赋值
     self.titleEdgeInsets = labelEdgeInsets;
     self.imageEdgeInsets = imageEdgeInsets;
+    
 }
 @end
