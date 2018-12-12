@@ -52,9 +52,12 @@
     }
     
     ((HomeProductView *)view).headerBtnHeight = 130;
+    ((HomeProductView *)view).headerURL = [data objectForKey:@"url"];
     ((HomeProductView *)view).headerButtonImageName = [data objectForKey:@"image"];
     ((HomeProductView *)view).products = [cards copy];
     ((HomeProductView *)view).scrollEnable = YES;
+    
+    _productView.delegate = self.delegate;
 }
 
 

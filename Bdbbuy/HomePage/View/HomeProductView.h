@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class HomeProductView;
+@protocol HomeProductViewDelegate <NSObject>
 
+- (void)homeproductview:(HomeProductView *)hpView didSelectHeaderButton:(UIButton *)btn WithHeaderURL:(NSString *)url;
+-(void)homeproductview:(HomeProductView *)hpView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath WithProductURL:(NSString *)url;
 
+@end
 
 @interface HomeProductView : UIView
 @property (nonatomic, strong) NSString *headerButtonImageName;
@@ -17,6 +22,8 @@
 @property (nonatomic, assign) BOOL scrollEnable;
 @property (nonatomic, assign) CGFloat collectionViewHeight;
 @property (nonatomic, assign) CGFloat headerBtnHeight;
+@property (nonatomic, copy) NSString *headerURL;
+@property (nonatomic, weak) id<HomeProductViewDelegate> delegate;
 
 -(instancetype)init NS_UNAVAILABLE;
 -(instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;

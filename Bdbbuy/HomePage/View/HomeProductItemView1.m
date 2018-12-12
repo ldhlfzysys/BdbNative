@@ -11,7 +11,6 @@
 
 @interface HomeProductItemView1 ()
 
-@property (nonatomic, strong) UIButton *backgroundButton;
 @property (nonatomic, strong) UIImageView *productImage;
 @property (nonatomic, strong) UILabel *productLable;
 @property (nonatomic, strong) UILabel *priceLable;
@@ -36,8 +35,6 @@ static CGFloat spaceMargin = 5;
     } else {
         [self.productImage setImage:[UIImage imageNamed:productImageName]];
     }
-    
-
     
     self.productLable.font = [UIFont systemFontOfSize:11];
     self.productLable.numberOfLines = 2;
@@ -70,55 +67,45 @@ static CGFloat spaceMargin = 5;
 
 - (void)createSubviews
 {
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.backgroundButton = backBtn;
-    [self addSubview:self.backgroundButton];
-    [self.backgroundButton addTarget:self action:@selector(productButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIImageView *imageView = [[UIImageView alloc] init];
     self.productImage = imageView;
-    [backBtn addSubview:self.productImage];
+    [self addSubview:self.productImage];
     
     UILabel *productLabel = [[UILabel alloc] init];
     self.productLable = productLabel;
-    productLabel.width = self.backgroundButton.width;
-    [backBtn addSubview:self.productLable];
+    productLabel.width = self.width;
+    [self addSubview:self.productLable];
     
     
     UILabel *priceLabel = [[UILabel alloc] init];
     self.priceLable = priceLabel;
-    [backBtn addSubview:self.priceLable];
+    [self addSubview:self.priceLable];
     
 }
 
 - (void)configSubviews
 {
-    self.backgroundButton.frame = self.bounds;
     
     self.productImage.top = 0;
     self.productImage.left = 0;
-    self.productImage.width = self.backgroundButton.width;
-    self.productImage.height = self.backgroundButton.height * 0.6;
+    self.productImage.width = self.width;
+    self.productImage.height = self.height * 0.6;
     
     if (self.productImage.width > self.productImage.height * 1.2) {
         self.productImage.width = self.productImage.height * 1.2;
-        self.productImage.left = (self.backgroundButton.width - self.productImage.width) * 0.5;
+        self.productImage.left = (self.width - self.productImage.width) * 0.5;
     }
     
     [self.productLable sizeToFit];
     self.productLable.left = 0;
     self.productLable.top = CGRectGetMaxY(self.productImage.frame) + spaceMargin;
-    self.productLable.width = self.backgroundButton.width;
+    self.productLable.width = self.width;
     
     [self.priceLable sizeToFit];
     self.priceLable.left = 0;
-    self.priceLable.width = self.backgroundButton.width;
+    self.priceLable.width = self.width;
     self.priceLable.bottom = self.height - spaceMargin;
-    
-}
-
-- (void)productButtonClick:(UIButton *)btn
-{
     
 }
 

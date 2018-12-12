@@ -128,10 +128,12 @@ static NSString * hpReuseIdentifier = @"HomeProductCollectionViewCell";
 #pragma mark - action
 - (void)headerButtonDidClick:(UIButton *)button
 {
-    
+    if ([self.delegate respondsToSelector:@selector(homeproductview:didSelectHeaderButton:WithHeaderURL:)]) {
+        [self.delegate homeproductview:self didSelectHeaderButton:button WithHeaderURL:self.headerURL];
+    }
 }
 
-#pragma mark - delegate
+#pragma mark - datasource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
@@ -156,14 +158,26 @@ static NSString * hpReuseIdentifier = @"HomeProductCollectionViewCell";
     [datadic setObject:@(_flowlayout.itemSize.width) forKey:@"cellWidth"];
     [datadic setObject:@(_flowlayout.itemSize.height) forKey:@"cellHeight"];
     if (cell.contentView.subviews.count <= 0) {
-        // 复用
+        // 加载view
         UIView *cardView = [cellCard viewWithCardData:datadic];
         [cell.contentView addSubview:cardView];
     } else {
+        // 复用
         [cellCard refreshView:cell.contentView.subviews[0] WithData:datadic];
     }
     
     return cell;
+}
+
+#pragma mark - delegate
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BdbCard *card = [self.products objectAtIndex:indexPath.row];
+    
+    if ([self.delegate respondsToSelector:@selector(homeproductview:collectionView:didSelectItemAtIndexPath:WithProductURL:)]) {
+        NSString *url = [card.dataDic objectForKey:@"url"];
+        [self.delegate homeproductview:self collectionView:collectionView didSelectItemAtIndexPath:indexPath WithProductURL:url];
+    }
 }
 
 

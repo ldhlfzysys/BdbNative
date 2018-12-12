@@ -10,11 +10,12 @@
 #import "HomeSearchView.h"
 #import "MultiButtonsView.h"
 #import "HomeDataProvider.h"
+#import "HomeProductView.h"
 
 
 static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 
-@interface HomePageTableViewController ()<MultiButtonsViewDelegate, HomeSearchViewDelegate>
+@interface HomePageTableViewController ()<MultiButtonsViewDelegate, HomeSearchViewDelegate,HomeProductViewDelegate>
 @property (nonatomic, strong) NSMutableArray *homeCards;
 @property (nonatomic, strong) HomeSearchView *searchView;
 
@@ -114,6 +115,27 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
     searchVC.title = @"搜索结果";
     [searchView resignFirstResponder];
     [self.navigationController pushViewController:searchVC animated:NO];
+}
+
+-(void)homeproductview:(HomeProductView *)hpView didSelectHeaderButton:(UIButton *)btn WithHeaderURL:(NSString *)url
+{
+    if (url && url.length > 0 && [url hasPrefix:@"http"]) {
+        BdbWebViewController *category = [[BdbWebViewController alloc] initWithAddress:url];
+        category.title = @"分类";
+        [self resignFirstResponder];
+        [self.navigationController pushViewController:category animated:NO];
+    }
+    
+}
+
+-(void)homeproductview:(HomeProductView *)hpView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath WithProductURL:(NSString *)url
+{
+    if (url && url.length > 0 && [url hasPrefix:@"http"]) {
+        BdbWebViewController *product = [[BdbWebViewController alloc] initWithAddress:url];
+        product.title = @"分类";
+        [self resignFirstResponder];
+        [self.navigationController pushViewController:product animated:NO];
+    }
 }
 
 
