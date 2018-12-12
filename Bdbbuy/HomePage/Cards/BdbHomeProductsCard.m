@@ -33,6 +33,9 @@
 
 -(void)refreshView:(UIView *)view WithData:(NSDictionary *)data
 {
+    if (!_productView) {
+        _productView = (HomeProductView *)view;
+    }
     CGFloat cellWidth = [data objectForKey:@"cellWidth"] ? [[data objectForKey:@"cellWidth"] floatValue] : [UIScreen mainScreen].bounds.size.width;
     view.top = 0;
     view.left = 0;

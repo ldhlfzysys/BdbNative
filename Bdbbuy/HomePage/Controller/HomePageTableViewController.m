@@ -68,6 +68,7 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 
 - (void)configTableView
 {
+    [self.homeCards removeAllObjects];
     for (NSDictionary *dic in [HomeDataProvider sharedProvider].homeData) {
         NSInteger type = [[dic objectForKey:@"type"] integerValue];
         BdbCard *card = [[NSClassFromString([BdbCard getCardTypeWithType:type]) alloc] init];
