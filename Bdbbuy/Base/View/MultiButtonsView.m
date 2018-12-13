@@ -20,7 +20,7 @@ static int maxLineCount = 6;
     
     CGFloat width = contentRect.size.width * 0.6;
     CGFloat height = width;
-    CGFloat x = contentRect.size.width * 0.3 * 0.5;
+    CGFloat x = contentRect.size.width * 0.4 * 0.5;
     CGFloat y = 5;
     return CGRectMake(x, y, width, height);
 }
