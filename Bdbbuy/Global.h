@@ -21,6 +21,7 @@
 // controller
 #import "BdbWebViewController.h"
 #import "BaseViewController.h"
+#import "BdbTabBarViewController.h"
 
 
 // model
@@ -28,6 +29,9 @@
 
 // protocol
 #import "BdbCardProtocol.h"
+
+
+#import "BdbNetwork.h"
 
 
 #endif /* Global_h */

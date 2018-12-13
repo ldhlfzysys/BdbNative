@@ -25,6 +25,10 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.showsVerticalScrollIndicator = NO;
+    
 //    配置搜索条
     [self configSeachView];
     __weak typeof(self) weakSelf = self;
@@ -35,8 +39,6 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
             strongSelf.cards = [strongSelf.homeCards copy];
         }
     }];
-    self.showRefreshHeader = YES;
-    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -45,11 +47,6 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
     if (self.searchView) {
         [self.searchView clearSearchView];
     }
-    
-}
-
--(void)loadPreMoreData
-{
     __weak typeof(self) weakSelf = self;
     [[HomeDataProvider sharedProvider] requestHomeDataWithCompletionBlock:^(BOOL compelet) {
         if (compelet) {
@@ -59,6 +56,11 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
             [strongSelf.tableView.mj_header endRefreshing];
         }
     }];
+    
+}
+
+-(void)loadPreMoreData
+{
 }
 
 
@@ -105,31 +107,20 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
             break;
         }
     }
-    
     NSDictionary *catagoryDic = catogeryInfos[index];
-    BdbWebViewController *category = [[BdbWebViewController alloc] initWithAddress:catagoryDic[@"url"]];
-    category.title = catagoryDic[@"name"];
-    [self resignFirstResponder];
-    [self.navigationController pushViewController:category animated:NO];
-    
+    [self jumpToNextPageWithTitle:catagoryDic[@"name"] WithURL:catagoryDic[@"url"]];
 }
 
 -(void)homesearchview:(HomeSearchView *)searchView didClickSearchButton:(UIButton *)searchButton WithSearchText:(nonnull NSString *)searchText
 {
     NSString *url = [NSString stringWithFormat:@"%@?search_key=%@", searchBaseURL, searchText];
-    BdbWebViewController *searchVC = [[BdbWebViewController alloc] initWithAddress:url];
-    searchVC.title = @"搜索结果";
-    [searchView resignFirstResponder];
-    [self.navigationController pushViewController:searchVC animated:NO];
+    [self jumpToNextPageWithTitle:@"搜索结果" WithURL:url];
 }
 
 -(void)homeproductview:(HomeProductView *)hpView didSelectHeaderButton:(UIButton *)btn WithHeaderURL:(NSString *)url
 {
     if (url && url.length > 0 && [url hasPrefix:@"http"]) {
-        BdbWebViewController *category = [[BdbWebViewController alloc] initWithAddress:url];
-        category.title = @"分类";
-        [self resignFirstResponder];
-        [self.navigationController pushViewController:category animated:NO];
+        [self jumpToNextPageWithTitle:@"分类" WithURL:url];
     }
     
 }
@@ -137,14 +128,37 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 -(void)homeproductview:(HomeProductView *)hpView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath WithProductURL:(NSString *)url
 {
     if (url && url.length > 0 && [url hasPrefix:@"http"]) {
-        BdbWebViewController *product = [[BdbWebViewController alloc] initWithAddress:url];
-        product.title = @"详情";
-        [self resignFirstResponder];
-        [self.navigationController pushViewController:product animated:NO];
+        [self jumpToNextPageWithTitle:@"详情" WithURL:url];
     }
 }
 
 
+- (void)hideTabbarAndPushViewController:(UIViewController *)vc animated:(BOOL)animated
+{
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:animated];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+- (void)jumpToNextPageWithTitle:(NSString *)title WithURL:(NSString *)url
+{
+//    BdbBaseURL
+    NSString *catogeryAddress = [NSString stringWithFormat:@"%@category?category_id=", BdbBaseURL];
+    if ([url containsString:catogeryAddress]) {
+        // 跳转分类的网址拦截，跳转tabbar
+        NSInteger catogeryIndex = [(BdbTabBarViewController *)self.tabBarController getTabbarItemIndexWithTabbarTitle:@"分类"];
+        UINavigationController *catogeryNav = self.tabBarController.viewControllers[catogeryIndex];
+        [catogeryNav popViewControllerAnimated:NO];
+        BdbWebViewController *catogeryVC = (BdbWebViewController *)catogeryNav.topViewController;
+        [self.tabBarController setSelectedIndex:catogeryIndex];
+        [catogeryVC loadURL:[NSURL URLWithString:url]];
+    } else {
+        BdbWebViewController *product = [[BdbWebViewController alloc] initWithAddress:url];
+        product.title = title;
+        [self resignFirstResponder];
+        [self hideTabbarAndPushViewController:product animated:YES];
+    }
+}
 
 #pragma mark - Setter & Getter
 -(NSMutableArray *)homeCards

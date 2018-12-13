@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BdbTabBarViewController : UITabBarController
-
+- (NSInteger)getTabbarItemIndexWithTabbarTitle:(NSString *)title;
 @end
 
 NS_ASSUME_NONNULL_END

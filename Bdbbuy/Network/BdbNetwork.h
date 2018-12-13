@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, BdbNetworkRequestType) {
     BdbNetworkRequestTypePOST,
 };
 
-
+UIKIT_EXTERN NSString * const BdbBaseURL;
 
 @interface BdbNetwork : NSObject
 

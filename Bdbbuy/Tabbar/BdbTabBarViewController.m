@@ -29,4 +29,19 @@
 }
 */
 
+- (NSInteger)getTabbarItemIndexWithTabbarTitle:(NSString *)title
+{
+    NSArray *items = self.tabBar.items;
+    NSInteger index = -1;
+    for (NSInteger  i = 0; i < items.count; i++) {
+        UITabBarItem *item = items[i];
+        if ([item.title isEqualToString:title]) {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+
 @end
