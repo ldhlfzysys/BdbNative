@@ -81,33 +81,42 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
 {
-//    switch (tabBarController.selectedIndex) {
-//        case 0:
-//        {
-//
-//            break;
-//        }
-//        case 1:
-//        {
-//            AXWebViewController *vc = tabViewControllers[1];
-//            [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/category"]];
-//            break;
-//        }
-//        case 2:
-//        {
-//            AXWebViewController *vc = tabViewControllers[2];
-//            [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/cart"]];
-//            break;
-//        }
-//        case 3:
-//        {
-//            AXWebViewController *vc = tabViewControllers[3];
-//            [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/user"]];
-//            break;
-//        }
-//        default:
-//            break;
-//    }
+    switch (tabBarController.selectedIndex) {
+        case 0:
+        {
+
+            break;
+        }
+        case 1:
+        {
+            AXWebViewController *vc = tabViewControllers[1];
+            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"user"]) {
+                [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/category"]];
+            }
+            
+            break;
+        }
+        case 2:
+        {
+            AXWebViewController *vc = tabViewControllers[2];
+            if ([vc.webView.URL.absoluteString containsString:@"category"] || [vc.URL.absoluteString containsString:@"user"]) {
+                
+                [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/cart"]];
+            }
+            break;
+        }
+        case 3:
+        {
+            AXWebViewController *vc = tabViewControllers[3];
+            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"category"]) {
+                
+                [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/user"]];
+            }
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
