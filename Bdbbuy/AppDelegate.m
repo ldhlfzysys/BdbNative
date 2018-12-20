@@ -15,9 +15,9 @@
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 {
-    BdbWebViewController *category;
-    BdbWebViewController *cart;
-    BdbWebViewController *user;
+    BdbTabWebViewController *category;
+    BdbTabWebViewController *cart;
+    BdbTabWebViewController *user;
     NSArray *tabViewControllers;
 }
 @end
@@ -43,19 +43,19 @@
     homeVC.tabBarItem = [self tabBarName:@"首页" image:@"home" selected:@"home_highlight"];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:homeVC];
     //购物车
-    cart = [[BdbWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/cart"];
+    cart = [[BdbTabWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/cart"];
     cart.title = @"购物车";
     cart.tabBarItem = [self tabBarName:@"购物车" image:@"cart" selected:@"cart_highlight"];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:cart];
     
     //分类
-    category = [[BdbWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/category"];
+    category = [[BdbTabWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/category"];
     category.title = @"分类";
     category.tabBarItem = [self tabBarName:@"分类" image:@"category" selected:@"category_highlight"];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:category];
     
     //我
-    user = [[BdbWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/user"];
+    user = [[BdbTabWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/user"];
     user.title = @"我";
     user.tabBarItem = [self tabBarName:@"我" image:@"user" selected:@"user_highlight"];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:user];
@@ -90,28 +90,28 @@
         case 1:
         {
             AXWebViewController *vc = tabViewControllers[1];
-            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"user"]) {
+//            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"user"]) {
                 [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/category"]];
-            }
+//            }
             
             break;
         }
         case 2:
         {
             AXWebViewController *vc = tabViewControllers[2];
-            if ([vc.webView.URL.absoluteString containsString:@"category"] || [vc.URL.absoluteString containsString:@"user"]) {
-                
+//            if ([vc.webView.URL.absoluteString containsString:@"category"] || [vc.URL.absoluteString containsString:@"user"]) {
+            
                 [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/cart"]];
-            }
+//            }
             break;
         }
         case 3:
         {
             AXWebViewController *vc = tabViewControllers[3];
-            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"category"]) {
-                
+//            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"category"]) {
+            
                 [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/user"]];
-            }
+//            }
             break;
         }
         default:

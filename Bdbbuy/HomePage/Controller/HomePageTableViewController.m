@@ -44,6 +44,7 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
     if (self.searchView) {
         [self.searchView clearSearchView];
     }
@@ -137,7 +138,6 @@ static NSString *searchBaseURL = @"https://m.bdbbuy.com/search";
 {
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:animated];
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (void)jumpToNextPageWithTitle:(NSString *)title WithURL:(NSString *)url

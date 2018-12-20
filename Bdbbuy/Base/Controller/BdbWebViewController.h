@@ -12,7 +12,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface BdbWebViewController : AXWebViewController
+@end
+
+@interface BdbTabWebViewController : BdbWebViewController
 @end
 
 NS_ASSUME_NONNULL_END
