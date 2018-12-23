@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BdbWebViewController : AXWebViewController
 @end
 
+@interface BdbWebViewControllerWeb : AXWebViewController
+@end
+
 @interface BdbTabWebViewController : BdbWebViewController
 @end
 

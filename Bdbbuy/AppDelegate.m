@@ -12,29 +12,47 @@
 #import "BdbWebViewController.h"
 #import "UIView+Layout.h"
 #import "AXWebViewController.h"
+#import "BdbNetwork.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 {
     BdbTabWebViewController *category;
     BdbTabWebViewController *cart;
     BdbTabWebViewController *user;
+    BdbWebViewControllerWeb *webVC;
     NSArray *tabViewControllers;
 }
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // Override point for customization after application launch.
+    UIWindow *window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIViewController *launch = [[UIViewController alloc] init];
+    launch.view.backgroundColor = [UIColor whiteColor];
+    [[BdbNetwork sharedNetwork] sendGetRequestWithPath:@"api/index/shownative" WithParam:nil compeletion:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull resultDic, NSError * _Nonnull error) {
+//        NSLog(@"%@",resultDic);
+        if ([[resultDic objectForKey:@"shownative"] integerValue] == 0) {
+            [self loadWeb:window];
+        }else{
+            [self loadnative:window];
+        }
+    }];
+    window.rootViewController = launch;
+    self.window = window;
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (void)loadnative:(UIWindow*)window
+{
     UIWebView*webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     NSString*userAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];NSString*newUserAgent = [userAgent stringByAppendingString:@" bdbmobile"];//自定义需要拼接的字符串
     NSDictionary*dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent,@"UserAgent",nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // Override point for customization after application launch.
-    UIWindow *window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     BdbTabBarViewController *tabbar = [[BdbTabBarViewController alloc] init];
     
     //首页
@@ -63,10 +81,24 @@
     tabbar.viewControllers = @[nav1,nav2,nav3,nav4];
     tabbar.delegate = self;
     window.rootViewController = tabbar;
+}
+
+- (void)loadWeb:(UIWindow*)window
+{
+    UIWebView*webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    NSString*userAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];NSString*newUserAgent = [userAgent stringByAppendingString:@""];//自定义需要拼接的字符串
+    NSDictionary*dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent,@"UserAgent",nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    self.window = window;
-    [self.window makeKeyAndVisible];
-    return YES;
+    webVC = [[BdbWebViewControllerWeb alloc] initWithAddress:@"https://m.bdbbuy.com"];
+    webVC.showsToolBar = NO;
+    webVC.timeoutInternal = 10;
+    webVC.enabledWebViewUIDelegate = YES;
+    webVC.navigationType = AXWebViewControllerNavigationToolItem;
+    webVC.enabledWebViewUIDelegate = YES;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webVC];
+    window.rootViewController = nav;
 }
 
 - (UITabBarItem *)tabBarName:(NSString *)title image:(NSString *)image selected:(NSString *)selected

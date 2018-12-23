@@ -120,6 +120,39 @@
 
 @end
 
+@implementation BdbWebViewControllerWeb
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    
+    //paypal 和 alipay 打开外部应用
+    if ([navigationAction.request.URL.absoluteString containsString:@"paypal"] || [navigationAction.request.URL.absoluteString containsString:@"alipay"]) {
+        [[UIApplication sharedApplication] openURL:navigationAction.request.URL];
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
+    }
+    
+    if ([navigationAction.request.URL.absoluteString containsString:@"payloading"]) {
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
+    }
+    
+    // Disable all the '_blank' target in page's target.
+    if (!navigationAction.targetFrame.isMainFrame) {
+        [webView evaluateJavaScript:@"var a = document.getElementsByTagName('a');for(var i=0;i<a.length;i++){a[i].setAttribute('target','');}" completionHandler:nil];
+    }
+    
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:navigationAction.request.URL.absoluteString];
+    
+    
+    
+    if ([navigationAction.request.URL.absoluteString containsString:@"ax_404_not_found"] || [navigationAction.request.URL.absoluteString containsString:@"ax_network_error"]) {
+        
+        [self loadURL:_URL];
+    }
+    
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+@end
+
 @implementation BdbTabWebViewController
 
 - (void)viewWillAppear:(BOOL)animated
