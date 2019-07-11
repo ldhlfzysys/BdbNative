@@ -7,34 +7,50 @@
 //
 
 #import "AppDelegate.h"
-#import "HomePageTableViewController.h"
-#import "BdbTabBarViewController.h"
 #import "BdbWebViewController.h"
-#import "UIView+Layout.h"
-#import "AXWebViewController.h"
 #import "BdbNetwork.h"
-
-@interface AppDelegate ()<UITabBarControllerDelegate>
+#import <UMCommon/UMCommon.h>
+#import <UMPush/UMessage.h>
+#import "BdbMainTabBarController.h"
+#import "BdbLaunchViewController.h"
+@interface AppDelegate ()<UITabBarControllerDelegate,UNUserNotificationCenterDelegate>
 {
-    BdbTabWebViewController *category;
-    BdbTabWebViewController *cart;
-    BdbTabWebViewController *user;
-    BdbWebViewControllerWeb *webVC;
-    NSArray *tabViewControllers;
+    BdbWebViewController *webVC;
 }
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.backgroundColor = [UIColor whiteColor];
     
+    [UMConfigure setLogEnabled:YES];//设置打开日志
+    [UMConfigure initWithAppkey:@"5bd5a5d5b465f5a00c00006d" channel:@"App Store"];
+    
+    // Push组件基本功能配置
+    UMessageRegisterEntity * entity = [[UMessageRegisterEntity alloc] init];
+    //type是对推送的几个参数的选择，可以选择一个或者多个。默认是三个全部打开，即：声音，弹窗，角标
+    entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionSound|UMessageAuthorizationOptionAlert;
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+        }else{
+        }
+    }];
     // Override point for customization after application launch.
     UIWindow *window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIViewController *launch = [[UIViewController alloc] init];
-    launch.view.backgroundColor = [UIColor whiteColor];
+    BdbLaunchViewController *launch = [[BdbLaunchViewController alloc] init];
+    
+    //TODO temp
+//    self.window = window;
+//    [self loadnative:window];
+////    [self.window makeKeyAndVisible];
+//    return YES;
+    //TOOD temp
+    
     [[BdbNetwork sharedNetwork] sendGetRequestWithPath:@"api/index/shownative" WithParam:nil compeletion:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull resultDic, NSError * _Nonnull error) {
-//        NSLog(@"%@",resultDic);
-        if ([[resultDic objectForKey:@"shownative"] integerValue] == 0) {
+        NSString *currentBundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        if ([[resultDic objectForKey:currentBundleVersion] integerValue] == 1) {
             [self loadWeb:window];
         }else{
             [self loadnative:window];
@@ -48,39 +64,26 @@
 
 - (void)loadnative:(UIWindow*)window
 {
-    UIWebView*webView = [[UIWebView alloc] initWithFrame:CGRectZero];
-    NSString*userAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];NSString*newUserAgent = [userAgent stringByAppendingString:@" bdbmobile"];//自定义需要拼接的字符串
-    NSDictionary*dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent,@"UserAgent",nil];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    BdbTabBarViewController *tabbar = [[BdbTabBarViewController alloc] init];
-    
-    //首页
-    HomePageTableViewController *homeVC = [[HomePageTableViewController alloc] init];
-    homeVC.title = @"首页";
-    homeVC.tabBarItem = [self tabBarName:@"首页" image:@"home" selected:@"home_highlight"];
-    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    //购物车
-    cart = [[BdbTabWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/cart"];
-    cart.title = @"购物车";
-    cart.tabBarItem = [self tabBarName:@"购物车" image:@"cart" selected:@"cart_highlight"];
-    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:cart];
-    
-    //分类
-    category = [[BdbTabWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/category"];
-    category.title = @"分类";
-    category.tabBarItem = [self tabBarName:@"分类" image:@"category" selected:@"category_highlight"];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:category];
-    
-    //我
-    user = [[BdbTabWebViewController alloc] initWithAddress:@"https://m.bdbbuy.com/user"];
-    user.title = @"我";
-    user.tabBarItem = [self tabBarName:@"我" image:@"user" selected:@"user_highlight"];
-    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:user];
-    tabViewControllers = @[homeVC,category,cart,user];
-    tabbar.viewControllers = @[nav1,nav2,nav3,nav4];
-    tabbar.delegate = self;
-    window.rootViewController = tabbar;
+    [self buildKeyWindow];
+}
+
+
+- (void)buildKeyWindow{
+    NSString *isFirestOpenApp = [[NSUserDefaults standardUserDefaults]objectForKey:IsFirstOpenApp];
+    if (isFirestOpenApp == nil) {
+#warning mark - 这里正常是跳入到版本新特新界面
+        [self showMainTabBarController];
+        [[NSUserDefaults standardUserDefaults]setObject:IsFirstOpenApp forKey:IsFirstOpenApp];
+    }else
+    {
+        [self showMainTabBarController];
+    }
+    [self.window makeKeyAndVisible];
+}
+
+- (void)showMainTabBarController
+{
+    self.window.rootViewController = [[BdbMainTabBarController alloc]init];
 }
 
 - (void)loadWeb:(UIWindow*)window
@@ -91,13 +94,9 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    webVC = [[BdbWebViewControllerWeb alloc] initWithAddress:@"https://m.bdbbuy.com"];
-    webVC.showsToolBar = NO;
-    webVC.timeoutInternal = 10;
-    webVC.enabledWebViewUIDelegate = YES;
-    webVC.navigationType = AXWebViewControllerNavigationToolItem;
-    webVC.enabledWebViewUIDelegate = YES;
+    webVC = [[BdbWebViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webVC];
+//    [nav setNavigationBarHidden:YES];
     window.rootViewController = nav;
 }
 
@@ -111,43 +110,36 @@
     return tabbarItem;
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    switch (tabBarController.selectedIndex) {
-        case 0:
-        {
+    [UMessage setAutoAlert:NO];
+    if([[[UIDevice currentDevice] systemVersion]intValue] < 10){
+        [UMessage didReceiveRemoteNotification:userInfo];
+    }
+    completionHandler(UIBackgroundFetchResultNewData);
+}
 
-            break;
-        }
-        case 1:
-        {
-            AXWebViewController *vc = tabViewControllers[1];
-//            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"user"]) {
-                [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/category"]];
-//            }
-            
-            break;
-        }
-        case 2:
-        {
-            AXWebViewController *vc = tabViewControllers[2];
-//            if ([vc.webView.URL.absoluteString containsString:@"category"] || [vc.URL.absoluteString containsString:@"user"]) {
-            
-                [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/cart"]];
-//            }
-            break;
-        }
-        case 3:
-        {
-            AXWebViewController *vc = tabViewControllers[3];
-//            if ([vc.webView.URL.absoluteString containsString:@"cart"] || [vc.URL.absoluteString containsString:@"category"]) {
-            
-                [vc loadURL:[NSURL URLWithString:@"https://m.bdbbuy.com/user"]];
-//            }
-            break;
-        }
-        default:
-            break;
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [UMessage setAutoAlert:NO];
+        //应用处于前台时的远程推送接受
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+    }else{
+        //应用处于前台时的本地推送接受
+    }
+    completionHandler(UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionAlert);
+}
+//iOS10新增：处理后台点击通知的代理方法
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //应用处于后台时的远程推送接受
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+    }else{
+        //应用处于后台时的本地推送接受
     }
 }
 

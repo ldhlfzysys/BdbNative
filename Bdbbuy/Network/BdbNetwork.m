@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 
 
-NSString *const BdbBaseURL = @"https://m.bdbbuy.com/";
+NSString *const BdbBaseURL = @"https://bdbbuy.com/";
 //NSString *const BdbBaseURL = @"http://localhost:1118/";
 static NSTimeInterval BdbTimeout = 60;
 
@@ -34,38 +34,6 @@ static BdbNetwork *network = nil;
     
     return network;
 }
-
-
-+ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task,  id result, NSError * error))completion
-{
-    [self sendRequestWithType:requestType WithPath:path WithParam:paramDic WithTimeout:BdbTimeout compeletion:completion];
-    
-}
-
-+ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic WithTimeout:(NSTimeInterval)timeout compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task,  id result, NSError * error))completion
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = timeout;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    switch (requestType) {
-        case BdbNetworkRequestTypeGET:
-        {
-            [[BdbNetwork sharedNetwork] sendGetRequestWithPath:path WithParam:paramDic compeletion:completion];
-        }
-            break;
-        case BdbNetworkRequestTypePOST:
-        {
-            [[BdbNetwork sharedNetwork] sendPostRequestWithPath:path WithParam:paramDic compeletion:completion];
-        }
-            break;
-            
-        default:
-            break;
-    }
-}
-
 
 - (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion
 {

@@ -9,9 +9,10 @@ target 'Bdbbuy' do
     pod 'UMCShare/UI'
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'SDWebImage'
-    pod 'AFNetworking'
+    pod 'AFNetworking', '~> 3.0'
     pod 'SDCycleScrollView','~> 1.75'
-    pod 'AXWebViewController', '~> 0.7.2'
     pod 'MJRefresh'
-
+    pod 'MJExtension'
+    pod 'SVProgressHUD'
+    pod 'Masonry'
 end

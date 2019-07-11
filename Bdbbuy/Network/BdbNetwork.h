@@ -23,10 +23,8 @@ UIKIT_EXTERN NSString * const BdbBaseURL;
 
 
 + (instancetype)sharedNetwork;
-+ (void)sendRequestWithType:(BdbNetworkRequestType)requestType WithPath:(NSString *)path WithParam:(nullable NSDictionary * ) paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id resultDic, NSError * error))completion;
-- (instancetype)initWithBaseURL:(NSString *)baseURL;
 - (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id resultDic, NSError * error))completion;
-
+- (void)sendPostRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, NSDictionary * result, NSError * error))completion;
 @end
 
 NS_ASSUME_NONNULL_END
