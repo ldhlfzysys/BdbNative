@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface BdbWebViewController : UIViewController
+@interface BdbWKWebViewController : UIViewController
 @property(nonatomic,strong)WKWebView *webView;
 @end
 

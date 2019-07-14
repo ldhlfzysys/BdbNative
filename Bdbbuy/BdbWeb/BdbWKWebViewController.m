@@ -6,14 +6,14 @@
 //  Copyright © 2018 bdbbuy. All rights reserved.
 //
 
-#import "BdbWebViewController.h"
+#import "BdbWKWebViewController.h"
 #import "SVProgressHUD.h"
 
-@interface BdbWebViewController ()<WKNavigationDelegate,WKUIDelegate>
+@interface BdbWKWebViewController ()<WKNavigationDelegate,WKUIDelegate>
 
 @end
 
-@implementation BdbWebViewController
+@implementation BdbWKWebViewController
 
 - (instancetype)init
 {

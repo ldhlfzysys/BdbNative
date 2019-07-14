@@ -7,15 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "BdbWebViewController.h"
+#import "BdbWKWebViewController.h"
 #import "BdbNetwork.h"
 #import <UMCommon/UMCommon.h>
 #import <UMPush/UMessage.h>
 #import "BdbMainTabBarController.h"
 #import "BdbLaunchViewController.h"
+
 @interface AppDelegate ()<UITabBarControllerDelegate,UNUserNotificationCenterDelegate>
 {
-    BdbWebViewController *webVC;
+    BdbWKWebViewController *webVC;
 }
 @end
 
@@ -41,13 +42,6 @@
     UIWindow *window  = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     BdbLaunchViewController *launch = [[BdbLaunchViewController alloc] init];
     
-    //TODO temp
-//    self.window = window;
-//    [self loadnative:window];
-////    [self.window makeKeyAndVisible];
-//    return YES;
-    //TOOD temp
-    
     [[BdbNetwork sharedNetwork] sendGetRequestWithPath:@"api/index/shownative" WithParam:nil compeletion:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull resultDic, NSError * _Nonnull error) {
         NSString *currentBundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         if ([[resultDic objectForKey:currentBundleVersion] integerValue] == 1) {
@@ -59,6 +53,7 @@
     window.rootViewController = launch;
     self.window = window;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -94,9 +89,8 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    webVC = [[BdbWebViewController alloc] init];
+    webVC = [[BdbWKWebViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webVC];
-//    [nav setNavigationBarHidden:YES];
     window.rootViewController = nav;
 }
 
