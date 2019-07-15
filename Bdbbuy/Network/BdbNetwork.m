@@ -35,9 +35,39 @@ static BdbNetwork *network = nil;
     return network;
 }
 
+- (void)loadHomeData:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion
+{
+    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, @"categoryapi/category"];
+    [[AFHTTPSessionManager manager] GET:URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (completion) {
+            completion(YES, task, responseObject, nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (completion) {
+            completion(NO, task, nil, error);
+        }
+    }];
+}
+
+- (void)loadCategoryData:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion
+{
+    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, @"api/index"];
+    [[AFHTTPSessionManager manager] GET:URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (completion) {
+            completion(YES, task, responseObject, nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (completion) {
+            completion(NO, task, nil, error);
+        }
+    }];
+}
+
 - (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion
 {
-    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
+    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, @""];
     [[AFHTTPSessionManager manager] GET:URL parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion) {

@@ -7,7 +7,7 @@
 #import "BdbHomeHeadData.h"
 #import "BdbHomeHeadView.h"
 #import "UIImageView+WebCache.h"
-
+#import "BdbNetwork.h"
 @interface BdbHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BdbHomeHeadData *homeHeadData;
