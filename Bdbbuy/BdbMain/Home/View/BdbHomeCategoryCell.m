@@ -17,6 +17,8 @@
         _titleView = [[BdbHomeCellTitleView alloc]init];
         [self addSubview:_titleView];
         _sortImage = [[UIImageView alloc]init];
+        _sortImage.contentMode = UIViewContentModeScaleAspectFill;
+        _sortImage.clipsToBounds = YES;
         [self addSubview:_sortImage];
         _goodsView = [[BdbHomeCellGoodsView alloc]init];
         [self addSubview:_goodsView];

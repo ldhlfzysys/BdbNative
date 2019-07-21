@@ -96,6 +96,11 @@
 		B86F9D3E22DBF04400A5663C /* banner4.png in Resources */ = {isa = PBXBuildFile; fileRef = B86F9D3122DBF04400A5663C /* banner4.png */; };
 		B86F9D4822DBF68E00A5663C /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = B86F9D4722DBF68E00A5663C /* launch.png */; };
 		B86F9D4A22DBF70700A5663C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86F9D4922DBF70700A5663C /* Launch Screen.storyboard */; };
+		B86F9D5622DCC27700A5663C /* GYZChooseCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86F9D4C22DCC27600A5663C /* GYZChooseCityController.m */; };
+		B86F9D5722DCC27700A5663C /* GYZCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B86F9D4D22DCC27600A5663C /* GYZCityGroupCell.m */; };
+		B86F9D5822DCC27700A5663C /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B86F9D4E22DCC27600A5663C /* CityData.plist */; };
+		B86F9D5922DCC27700A5663C /* GYZCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B86F9D4F22DCC27600A5663C /* GYZCityHeaderView.m */; };
+		B86F9D5A22DCC27700A5663C /* GYZCity.m in Sources */ = {isa = PBXBuildFile; fileRef = B86F9D5022DCC27600A5663C /* GYZCity.m */; };
 		B874C90622D2056B00C8BCE4 /* BdbAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B874C90522D2056B00C8BCE4 /* BdbAddressViewController.m */; };
 		B88DC72421B3F75400F6CD40 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88DC72321B3F75400F6CD40 /* images.xcassets */; };
 		B892C2C022D1D920004D4FCF /* BdbWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B892C2BE22D1D920004D4FCF /* BdbWKWebViewController.m */; };
@@ -252,6 +257,16 @@
 		B86F9D3122DBF04400A5663C /* banner4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner4.png; sourceTree = "<group>"; };
 		B86F9D4722DBF68E00A5663C /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		B86F9D4922DBF70700A5663C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B86F9D4C22DCC27600A5663C /* GYZChooseCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZChooseCityController.m; sourceTree = "<group>"; };
+		B86F9D4D22DCC27600A5663C /* GYZCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCityGroupCell.m; sourceTree = "<group>"; };
+		B86F9D4E22DCC27600A5663C /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		B86F9D4F22DCC27600A5663C /* GYZCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCityHeaderView.m; sourceTree = "<group>"; };
+		B86F9D5022DCC27600A5663C /* GYZCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZCity.m; sourceTree = "<group>"; };
+		B86F9D5122DCC27600A5663C /* GYZCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCityGroupCell.h; sourceTree = "<group>"; };
+		B86F9D5222DCC27600A5663C /* GYZChooseCityDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZChooseCityDelegate.h; sourceTree = "<group>"; };
+		B86F9D5322DCC27600A5663C /* GYZChooseCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZChooseCityController.h; sourceTree = "<group>"; };
+		B86F9D5422DCC27600A5663C /* GYZCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCityHeaderView.h; sourceTree = "<group>"; };
+		B86F9D5522DCC27600A5663C /* GYZCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCity.h; sourceTree = "<group>"; };
 		B874C90422D2056B00C8BCE4 /* BdbAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbAddressViewController.h; sourceTree = "<group>"; };
 		B874C90522D2056B00C8BCE4 /* BdbAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbAddressViewController.m; sourceTree = "<group>"; };
 		B88DC72321B3F75400F6CD40 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -312,6 +327,7 @@
 		8BAB53EB21AD80A600AC813A /* Bdbbuy */ = {
 			isa = PBXGroup;
 			children = (
+				B86F9D4B22DCC27600A5663C /* GYZChooseCity */,
 				B86F9D2322DBF04400A5663C /* resources */,
 				B86F9C4822D7835E00A5663C /* BdbMain */,
 				B892C2BD22D1D920004D4FCF /* BdbWeb */,
@@ -604,6 +620,23 @@
 			path = Banner;
 			sourceTree = "<group>";
 		};
+		B86F9D4B22DCC27600A5663C /* GYZChooseCity */ = {
+			isa = PBXGroup;
+			children = (
+				B86F9D4C22DCC27600A5663C /* GYZChooseCityController.m */,
+				B86F9D4D22DCC27600A5663C /* GYZCityGroupCell.m */,
+				B86F9D4E22DCC27600A5663C /* CityData.plist */,
+				B86F9D4F22DCC27600A5663C /* GYZCityHeaderView.m */,
+				B86F9D5022DCC27600A5663C /* GYZCity.m */,
+				B86F9D5122DCC27600A5663C /* GYZCityGroupCell.h */,
+				B86F9D5222DCC27600A5663C /* GYZChooseCityDelegate.h */,
+				B86F9D5322DCC27600A5663C /* GYZChooseCityController.h */,
+				B86F9D5422DCC27600A5663C /* GYZCityHeaderView.h */,
+				B86F9D5522DCC27600A5663C /* GYZCity.h */,
+			);
+			path = GYZChooseCity;
+			sourceTree = "<group>";
+		};
 		B892C2BD22D1D920004D4FCF /* BdbWeb */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +780,7 @@
 				B86F9CFB22D7835E00A5663C /* MinePlist.plist in Resources */,
 				B86F9CF822D7835E00A5663C /* 系统消息 in Resources */,
 				B86F9D3B22DBF04400A5663C /* banner2.png in Resources */,
+				B86F9D5822DCC27700A5663C /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +865,7 @@
 				B86F9D1222D7835E00A5663C /* BdbTitleIconView.m in Sources */,
 				B86F9CE422D7835E00A5663C /* BdbHeadLinePageView.m in Sources */,
 				B86F9CE722D7835E00A5663C /* BdbShoppingVC.m in Sources */,
+				B86F9D5922DCC27700A5663C /* GYZCityHeaderView.m in Sources */,
 				B86F9CE522D7835E00A5663C /* BdbHomeCell.m in Sources */,
 				B86F9CE322D7835E00A5663C /* BdbHomeHeadView.m in Sources */,
 				B86F9CF022D7835E00A5663C /* AddressData.m in Sources */,
@@ -862,6 +897,7 @@
 				B86F9D0A22D7835E00A5663C /* BdbProductsViewController.m in Sources */,
 				B86F9D1522D7835E00A5663C /* BaseTabBarViewController.m in Sources */,
 				B86F9CF522D7835E00A5663C /* BdbTableFootView.m in Sources */,
+				B86F9D5A22DCC27700A5663C /* GYZCity.m in Sources */,
 				B86F9CE622D7835E00A5663C /* BdbBuyView.m in Sources */,
 				B86F9CED22D7835E00A5663C /* BdbLightningView.m in Sources */,
 				B86F9CEA22D7835E00A5663C /* BdbDefaultView.m in Sources */,
@@ -871,6 +907,7 @@
 				B86F9D0C22D7835E00A5663C /* BdbSupermarketSource.m in Sources */,
 				B86F9CDE22D7835E00A5663C /* BdbDiscountPriceView.m in Sources */,
 				B86F9D1A22D7835E00A5663C /* BdbBaseViewController.m in Sources */,
+				B86F9D5722DCC27700A5663C /* GYZCityGroupCell.m in Sources */,
 				B86F9D0F22D7835E00A5663C /* BdbMyHeadView.m in Sources */,
 				B86F9CF222D7835E00A5663C /* NSString+Extension.m in Sources */,
 				8BAB53EE21AD80A600AC813A /* AppDelegate.m in Sources */,
@@ -880,6 +917,7 @@
 				B86F9D1822D7835E00A5663C /* BdbMainTabBarController.m in Sources */,
 				B86F9D1122D7835E00A5663C /* BdbMenuView.m in Sources */,
 				B86F9D0922D7835E00A5663C /* BdbFlashCell.m in Sources */,
+				B86F9D5622DCC27700A5663C /* GYZChooseCityController.m in Sources */,
 				B86F9CD522D7835E00A5663C /* BdbWebViewController.m in Sources */,
 				B874C90622D2056B00C8BCE4 /* BdbAddressViewController.m in Sources */,
 				B86F9CD722D7835E00A5663C /* BdbGoods.m in Sources */,

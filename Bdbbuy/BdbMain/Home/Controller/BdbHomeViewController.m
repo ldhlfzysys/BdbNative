@@ -8,7 +8,11 @@
 #import "BdbHomeHeadView.h"
 #import "UIImageView+WebCache.h"
 #import "BdbNetwork.h"
-@interface BdbHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+#import "GYZChooseCityController.h"
+@interface BdbHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,GYZChooseCityDelegate>
+{
+    UIButton *leftBarItem;
+}
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BdbHomeHeadData *homeHeadData;
 @property (nonatomic, strong) BdbHomeHeadView *homeheadView;
@@ -26,12 +30,48 @@ static NSString  *expandCell = @"expandCell";
 #pragma life sycle method
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [NSThread sleepForTimeInterval:1];
+    //配置左上角
+    leftBarItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBarItem addTarget:self action:@selector(location) forControlEvents:UIControlEventTouchUpInside];
+    [leftBarItem setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [leftBarItem setTitle:@"定位" forState:UIControlStateNormal];
+    [leftBarItem sizeToFit];
+    UIBarButtonItem *informationCardItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarItem];
+    self.navigationItem.leftBarButtonItem = informationCardItem;
+    
     [self addNotification];
     [self buildCollectionView];
     [self buildTableHeadView];
     [self bulidTableViewRefresh];
 }
+
+- (void)location
+{
+    GYZChooseCityController *cityPickerVC = [[GYZChooseCityController alloc] init];
+    [cityPickerVC setDelegate:self];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+        
+    }];
+}
+
+#pragma mark - GYZCityPickerDelegate
+- (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
+{
+    [leftBarItem setTitle:city.cityName forState:UIControlStateNormal];
+    [leftBarItem sizeToFit];
+    UIBarButtonItem *informationCardItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarItem];
+    self.navigationItem.leftBarButtonItem = informationCardItem;
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void) cityPickerControllerDidCancel:(GYZChooseCityController *)chooseCityController
+{
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+
 - (void)addNotification{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(homeTableHeadViewHeightDidChange:) name:HomeTableHeadViewHeightDidChange object:nil];
 }
@@ -84,6 +124,9 @@ static NSString  *expandCell = @"expandCell";
     header.gifView.frame = CGRectMake(0, 0, 100, 100);
     _collectionView.mj_header = header;
     [_collectionView.mj_header beginRefreshing];
+    [[BdbNetwork sharedNetwork] loadHomeData:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull result, NSError * _Nonnull error) {
+        
+    }];
 }
 - (void)headerRefeshData{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

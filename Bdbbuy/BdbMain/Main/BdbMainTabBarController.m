@@ -48,6 +48,7 @@
     item.selectedImage = [UIImage imageNamed:selectedImage];
     item.title = title;
     controller.tabBarItem = item;
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:249 / 255.0 green:207 / 255.0 blue:9 / 255.0 alpha:1]} forState:UIControlStateSelected];
     controller.title = title;
     BdbBaseNavigationController *naController = [[BdbBaseNavigationController alloc]initWithRootViewController:controller];
     [self addChildViewController:naController];

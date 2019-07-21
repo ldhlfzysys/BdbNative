@@ -44,9 +44,9 @@
 }
 
 - (void)headerRefeshData{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [[BdbNetwork sharedNetwork] loadCategoryData:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull result, NSError * _Nonnull error) {
         [_tableView.mj_header endRefreshing];
-    });
+    }];
 }
 
 #pragma mark - 数据源方法

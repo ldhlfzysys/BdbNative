@@ -41,9 +41,8 @@
     for (BdbGoods *obj in self.shopCar) {
             [self.shopCar removeObject:obj];
             [[NSNotificationCenter defaultCenter] postNotificationName:LFBShopCarDidRemoveProductNSNotification object:self userInfo:nil];
-            return ;
-        
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:LFBShopCarBuyNumberDidChangeNotification object:nil];
 }
 #pragma 删除商品
 - (void)removeFromProductShopCar:(BdbGoods*)goods {

@@ -66,7 +66,6 @@
 - (void)buildKeyWindow{
     NSString *isFirestOpenApp = [[NSUserDefaults standardUserDefaults]objectForKey:IsFirstOpenApp];
     if (isFirestOpenApp == nil) {
-#warning mark - 这里正常是跳入到版本新特新界面
         [self showMainTabBarController];
         [[NSUserDefaults standardUserDefaults]setObject:IsFirstOpenApp forKey:IsFirstOpenApp];
     }else

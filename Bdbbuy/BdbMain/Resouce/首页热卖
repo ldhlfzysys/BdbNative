@@ -418,7 +418,7 @@
 "category_id": "103532",
 "goods": [{
 "id": 101765,
-"name": "·红颜草莓",
+"name": "红颜草莓",
 "store_nums": 50,
 "specifics": "380g\/盒",
 "attribute": "",
@@ -462,7 +462,7 @@
 "img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/1614\/20160316141254_414418.jpg@200w_200h_90Q.jpg"
 }, {
 "id": 102174,
-"name": "·西瓜橙",
+"name": "西瓜橙",
 "store_nums": 50,
 "specifics": "250-350g 2粒",
 "attribute": "",
@@ -506,7 +506,7 @@
 "img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/1609\/20160316094120_299780.jpg@200w_200h_90Q.jpg"
 }, {
 "id": 14846,
-"name": "·进口红提",
+"name": "进口红提",
 "store_nums": 50,
 "specifics": "400g\/盒",
 "attribute": "",
@@ -984,9 +984,9 @@
 "hot_degree": 0,
 "safe_day": 1033,
 "safe_unit": 1,
-"market_price": 9.8,
+"market_price": 12,
 "pcid": 55,
-"partner_price": 9.8,
+"partner_price": 12,
 "ismix": 0,
 "pre_img": "0000097742_70960.jpg",
 "pre_imgs": "0000097742_97990.jpg",
@@ -1009,9 +1009,9 @@
 "child_cid": 103580,
 "product_id": "97742",
 "dealer_id": "9912",
-"price": 9.8,
+"price": 12,
 "number": "8",
-"d_price": "9.80",
+"d_price": "12",
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,

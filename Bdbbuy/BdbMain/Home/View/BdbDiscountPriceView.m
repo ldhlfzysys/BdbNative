@@ -18,11 +18,11 @@
         
         _discountLabel = [[UILabel alloc]init];
         _discountLabel.font = [UIFont systemFontOfSize:12];
-        _discountLabel.textColor = [UIColor grayColor];
+        _discountLabel.textColor = [UIColor whiteColor];
         [self addSubview:_discountLabel];
         
         _lines = [[UIView alloc]init];
-        _lines.backgroundColor = [UIColor grayColor];
+        _lines.backgroundColor = [UIColor whiteColor];
         [self addSubview:_lines];
         
         [_moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
