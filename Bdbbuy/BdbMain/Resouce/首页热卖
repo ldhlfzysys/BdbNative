@@ -418,7 +418,7 @@
 "category_id": "103532",
 "goods": [{
 "id": 101765,
-"name": "红颜草莓",
+"name": "美国巨峰葡萄",
 "store_nums": 50,
 "specifics": "380g\/盒",
 "attribute": "",
@@ -459,10 +459,10 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/1614\/20160316141254_414418.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/2018090701-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 102174,
-"name": "西瓜橙",
+"name": "彩柚",
 "store_nums": 50,
 "specifics": "250-350g 2粒",
 "attribute": "",
@@ -503,10 +503,10 @@
 "had_pm": 1,
 "pm_desc": "买一赠一",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/1609\/20160316094120_299780.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/20190301003-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 14846,
-"name": "进口红提",
+"name": "冬枣",
 "store_nums": 50,
 "specifics": "400g\/盒",
 "attribute": "",
@@ -547,7 +547,7 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/0417\/20160304170750_398930.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/2017111519-1.jpg?x-oss-process=style/center_new"
 }]
 }
 },  {
@@ -574,7 +574,7 @@
 "category_id": "103581",
 "goods": [{
 "id": 101654,
-"name": "飘香卤水冒腐竹(微辣)",
+"name": "鸭胗",
 "store_nums": 50,
 "specifics": "140g",
 "attribute": "",
@@ -615,10 +615,10 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/0115\/20160301150908_124767.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/20190326011-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 101657,
-"name": "飘香卤水冒土豆片(微辣)",
+"name": "香辣鸭脖",
 "store_nums": 50,
 "specifics": "190g",
 "attribute": "",
@@ -659,10 +659,10 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/0115\/20160301151049_525411.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/20190326010-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 101658,
-"name": "飘香卤水冒莲藕(微辣)",
+"name": "牛腱",
 "store_nums": 50,
 "specifics": "140g",
 "attribute": "",
@@ -703,7 +703,7 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/603\/0115\/20160301151130_430076.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/20190326009-1.jpg?x-oss-process=style/center_new"
 }]
 }
 }, {
@@ -730,7 +730,7 @@
 "category_id": "103541",
 "goods": [{
 "id": 98090,
-"name": "丽芝士纳宝帝奶酪威化饼干",
+"name": "口红辣条",
 "store_nums": 50,
 "specifics": "58g",
 "attribute": "",
@@ -771,10 +771,10 @@
 "had_pm": 1,
 "pm_desc": "买一赠一",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/000\/009\/8090\/0000098090_23170.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/6953240759150-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 99067,
-"name": "小老板紫菜海鲜味",
+"name": "培根豆腐",
 "store_nums": 50,
 "specifics": "36g",
 "attribute": "",
@@ -815,10 +815,10 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/601\/0915\/20160109152755_753571.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/6953240772326-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 17044,
-"name": "小老板香脆紫菜经典原味袋装",
+"name": "卫龙面筋",
 "store_nums": 50,
 "specifics": "36g\/袋",
 "attribute": "",
@@ -859,7 +859,7 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/201\/602\/2517\/20160225171530_491340.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/6935284499995-1.jpg?x-oss-process=style/center_new"
 }]
 }
 },{
@@ -886,7 +886,7 @@
 "category_id": "103575",
 "goods": [{
 "id": 94252,
-"name": "3M9001V专业防护口罩",
+"name": "弹力面膜",
 "store_nums": 50,
 "specifics": "3个\/包",
 "attribute": "",
@@ -927,10 +927,10 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/000\/009\/4252\/0000094252_32960.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/4901234299313-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 30099,
-"name": "苏菲极薄0.1弹力贴身日用卫生巾",
+"name": "高丝护发素",
 "store_nums": 50,
 "specifics": "8片\/包",
 "attribute": "",
@@ -971,10 +971,10 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/000\/003\/0099\/0000030099_42240.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/4971710391237-1.jpg?x-oss-process=style/center_new"
 }, {
 "id": 97742,
-"name": "思沃D918医用防护口罩",
+"name": "珍珠面膜",
 "store_nums": 50,
 "specifics": "1只\/袋",
 "attribute": "",
@@ -1015,7 +1015,7 @@
 "had_pm": 0,
 "pm_desc": "",
 "is_xf": 1,
-"img": "http:\/\/img01.bqstatic.com\/upload\/goods\/000\/009\/7742\/0000097742_70960.jpg@200w_200h_90Q.jpg"
+"img": "https://bdbbuy-images.oss-us-east-1.aliyuncs.com/4580504130107-1.jpg?x-oss-process=style/center_new"
 }]
 }
 }],
