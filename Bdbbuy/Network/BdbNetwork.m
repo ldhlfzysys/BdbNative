@@ -67,7 +67,7 @@ static BdbNetwork *network = nil;
 
 - (void)sendGetRequestWithPath:(NSString *)path WithParam:(nullable NSDictionary *)paramDic compeletion:(void (^)(BOOL success, NSURLSessionDataTask * _Nonnull task, id result, NSError * error))completion
 {
-    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, @""];
+    NSString *URL = [NSString stringWithFormat:@"%@%@", self.baseURL, path];
     [[AFHTTPSessionManager manager] GET:URL parameters:paramDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion) {
