@@ -106,6 +106,7 @@
 		B892C2C022D1D920004D4FCF /* BdbWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B892C2BE22D1D920004D4FCF /* BdbWKWebViewController.m */; };
 		B892C2C322D1DA0E004D4FCF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = B892C2C222D1DA0E004D4FCF /* Global.m */; };
 		B892C2EB22D1EA90004D4FCF /* BdbLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B892C2EA22D1EA90004D4FCF /* BdbLaunchViewController.m */; };
+		DED0F3092363E51400CCC969 /* supermarketnew in Resources */ = {isa = PBXBuildFile; fileRef = DED0F3082363E51300CCC969 /* supermarketnew */; };
 		F52E6EB81EF9151EAA831135 /* Pods_Bdbbuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798CC941E14010EC0892DF4A /* Pods_Bdbbuy.framework */; };
 		FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF4A21B107E400BB78AE /* BdbNetwork.m */; };
 /* End PBXBuildFile section */
@@ -277,6 +278,7 @@
 		B892C2E922D1EA90004D4FCF /* BdbLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbLaunchViewController.h; sourceTree = "<group>"; };
 		B892C2EA22D1EA90004D4FCF /* BdbLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbLaunchViewController.m; sourceTree = "<group>"; };
 		C31BAE3BEED2332AE27AF488 /* Pods-Bdbbuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bdbbuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bdbbuy/Pods-Bdbbuy.debug.xcconfig"; sourceTree = "<group>"; };
+		DED0F3082363E51300CCC969 /* supermarketnew */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = supermarketnew; sourceTree = "<group>"; };
 		FC54EF4921B107E400BB78AE /* BdbNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbNetwork.h; sourceTree = "<group>"; };
 		FC54EF4A21B107E400BB78AE /* BdbNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbNetwork.m; sourceTree = "<group>"; };
 		FC84FD6921B3B1E300D46A4E /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 		B86F9C9622D7835E00A5663C /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
+				DED0F3082363E51300CCC969 /* supermarketnew */,
 				B86F9C9722D7835E00A5663C /* FocusURL.plist */,
 				B86F9C9822D7835E00A5663C /* 系统消息 */,
 				B86F9C9922D7835E00A5663C /* supermarket */,
@@ -761,6 +764,7 @@
 				B86F9D0622D7835E00A5663C /* 首页热卖 in Resources */,
 				B86F9D4822DBF68E00A5663C /* launch.png in Resources */,
 				B86F9D3722DBF04400A5663C /* category_highlight@3x.png in Resources */,
+				DED0F3092363E51400CCC969 /* supermarketnew in Resources */,
 				B86F9D3822DBF04400A5663C /* cart@3x.png in Resources */,
 				B86F9D3622DBF04400A5663C /* home@3x.png in Resources */,
 				B86F9D3422DBF04400A5663C /* user_highlight@3x.png in Resources */,
@@ -1044,7 +1048,7 @@
 				INFOPLIST_FILE = Bdbbuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.6.4;
+				MARKETING_VERSION = 1.6.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bdbbuy.bdbbuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1063,7 +1067,7 @@
 				INFOPLIST_FILE = Bdbbuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.6.4;
+				MARKETING_VERSION = 1.6.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bdbbuy.bdbbuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

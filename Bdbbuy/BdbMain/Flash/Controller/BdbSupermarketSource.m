@@ -6,7 +6,7 @@
 @implementation BdbSupermarketSource
 
 + (void)loadSupermarketData:(CompleteBlock)complete {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"supermarket" ofType:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"supermarketnew" ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     BdbSupermarketSource *source = [BdbSupermarketSource mj_objectWithKeyValues:json];
