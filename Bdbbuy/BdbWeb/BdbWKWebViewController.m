@@ -36,13 +36,52 @@
         //设置请求的User-Agent信息中应用程序名称 iOS9后可用
         NSString *currentBundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         config.applicationNameForUserAgent = [NSString stringWithFormat:@"BDBBUY-%@",currentBundleVersion];
-        _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:config];
+        
+        UIEdgeInsets area = [self safeAreaInsets];
+        area.top += 44;
+        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, area.top, self.view.frame.size.width, self.view.frame.size.height - area.top) configuration:config];
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
         [self.view addSubview:_webView];
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bdbbuy.com"]]];
+        
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地址" style:UIBarButtonItemStylePlain target:self action:@selector(editAddrss)];
     }
     return self;
+}
+
+- (UIEdgeInsets)safeAreaInsets;
+{
+    UIEdgeInsets safeAreaInsets = UIEdgeInsetsZero;
+    if (@available(iOS 11.0, *)) {
+        safeAreaInsets = [[UIApplication sharedApplication] keyWindow].safeAreaInsets;
+    }else{
+        safeAreaInsets.top = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    }
+    safeAreaInsets.top = MAX(20, safeAreaInsets.top);
+    return safeAreaInsets;
+}
+
+- (void)editAddrss
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"输入地址" preferredStyle:UIAlertControllerStyleAlert];
+    //增加确定按钮；
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+      //获取第1个输入框；
+      UITextField *userNameTextField = alertController.textFields.firstObject;
+        NSString *text = userNameTextField.text;
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:text]]];
+    }]];
+    
+    //增加取消按钮；
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+    
+    //定义第一个输入框；
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+      
+    }];
+    
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 - (void)setTitle:(NSString *)title
