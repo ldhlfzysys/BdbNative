@@ -107,6 +107,7 @@
 		B892C2C322D1DA0E004D4FCF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = B892C2C222D1DA0E004D4FCF /* Global.m */; };
 		B892C2EB22D1EA90004D4FCF /* BdbLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B892C2EA22D1EA90004D4FCF /* BdbLaunchViewController.m */; };
 		DED0F3092363E51400CCC969 /* supermarketnew in Resources */ = {isa = PBXBuildFile; fileRef = DED0F3082363E51300CCC969 /* supermarketnew */; };
+		DEE3F0742398ADC300CEF0BB /* BdbTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE3F0732398ADC300CEF0BB /* BdbTools.m */; };
 		F52E6EB81EF9151EAA831135 /* Pods_Bdbbuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798CC941E14010EC0892DF4A /* Pods_Bdbbuy.framework */; };
 		FC54EF4B21B107E400BB78AE /* BdbNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54EF4A21B107E400BB78AE /* BdbNetwork.m */; };
 /* End PBXBuildFile section */
@@ -279,6 +280,8 @@
 		B892C2EA22D1EA90004D4FCF /* BdbLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbLaunchViewController.m; sourceTree = "<group>"; };
 		C31BAE3BEED2332AE27AF488 /* Pods-Bdbbuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bdbbuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bdbbuy/Pods-Bdbbuy.debug.xcconfig"; sourceTree = "<group>"; };
 		DED0F3082363E51300CCC969 /* supermarketnew */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = supermarketnew; sourceTree = "<group>"; };
+		DEE3F0722398ADC300CEF0BB /* BdbTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbTools.h; sourceTree = "<group>"; };
+		DEE3F0732398ADC300CEF0BB /* BdbTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbTools.m; sourceTree = "<group>"; };
 		FC54EF4921B107E400BB78AE /* BdbNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BdbNetwork.h; sourceTree = "<group>"; };
 		FC54EF4A21B107E400BB78AE /* BdbNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BdbNetwork.m; sourceTree = "<group>"; };
 		FC84FD6921B3B1E300D46A4E /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -678,6 +681,8 @@
 				8BAB53ED21AD80A600AC813A /* AppDelegate.m */,
 				8BAB53F521AD80A600AC813A /* Assets.xcassets */,
 				8BAB53FA21AD80A600AC813A /* Info.plist */,
+				DEE3F0722398ADC300CEF0BB /* BdbTools.h */,
+				DEE3F0732398ADC300CEF0BB /* BdbTools.m */,
 			);
 			name = SupportFile;
 			sourceTree = "<group>";
@@ -896,6 +901,7 @@
 				B86F9CDB22D7835E00A5663C /* UIColor+BdbExpand.m in Sources */,
 				B892C2C022D1D920004D4FCF /* BdbWKWebViewController.m in Sources */,
 				B86F9CD922D7835E00A5663C /* BdbHomeHeadData.m in Sources */,
+				DEE3F0742398ADC300CEF0BB /* BdbTools.m in Sources */,
 				B86F9D1722D7835E00A5663C /* BaseTabBarButton.m in Sources */,
 				8BAB53FC21AD80A600AC813A /* main.m in Sources */,
 				B86F9D0A22D7835E00A5663C /* BdbProductsViewController.m in Sources */,

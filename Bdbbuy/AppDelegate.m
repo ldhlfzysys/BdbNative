@@ -13,6 +13,7 @@
 #import <UMPush/UMessage.h>
 #import "BdbMainTabBarController.h"
 #import "BdbLaunchViewController.h"
+#import "BdbTools.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate,UNUserNotificationCenterDelegate>
 {
@@ -44,6 +45,8 @@
     
     [[BdbNetwork sharedNetwork] sendGetRequestWithPath:@"api/index/shownative" WithParam:nil compeletion:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull resultDic, NSError * _Nonnull error) {
         NSString *currentBundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        NSArray *opens = [resultDic objectForKey:@"opens"]?:@[];
+        [[BdbTools sharedTools] setOpens:opens];
         if ([[resultDic objectForKey:currentBundleVersion] integerValue] == 1) {
             [self loadWeb:window];
         }else{

@@ -8,7 +8,7 @@
 
 #import "BdbWKWebViewController.h"
 #import "SVProgressHUD.h"
-
+#import "BdbTools.h"
 @interface BdbWKWebViewController ()<WKNavigationDelegate,WKUIDelegate>
 
 @end
@@ -120,12 +120,16 @@
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     
     //paypal 和 alipay 打开外部应用
-    if ([navigationAction.request.URL.absoluteString containsString:@"paypal.com"] || [navigationAction.request.URL.absoluteString containsString:@"alipay"]) {
-        [[UIApplication sharedApplication] openURL:navigationAction.request.URL options:nil completionHandler:^(BOOL success) {
-            
-        }];
-        decisionHandler(WKNavigationActionPolicyCancel);
-        return;
+    NSArray *opens = [[BdbTools sharedTools] opens];
+    NSString *str = navigationAction.request.URL.absoluteString;
+    for (NSString *open in opens) {
+        if ([str containsString:open]) {
+            [[UIApplication sharedApplication] openURL:navigationAction.request.URL options:nil completionHandler:^(BOOL success) {
+                
+            }];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+        }
     }
     
     if ([navigationAction.request.URL.absoluteString containsString:@"payloading"]) {
