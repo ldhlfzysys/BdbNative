@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BdbTools : NSObject
 @property(nonatomic,strong)NSArray *opens;
+@property(nonatomic,strong)NSString *address;
 + (BdbTools *)sharedTools;
 @end
 

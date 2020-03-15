@@ -23,6 +23,12 @@
 
 @implementation AppDelegate
 
+-(BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler{
+
+    NSLog(@"userActivity : %@",userActivity.webpageURL.description);
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -46,7 +52,9 @@
     [[BdbNetwork sharedNetwork] sendGetRequestWithPath:@"api/index/shownative" WithParam:nil compeletion:^(BOOL success, NSURLSessionDataTask * _Nonnull task, id  _Nonnull resultDic, NSError * _Nonnull error) {
         NSString *currentBundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         NSArray *opens = [resultDic objectForKey:@"opens"]?:@[];
+        NSString *address = [resultDic objectForKey:@"address"];
         [[BdbTools sharedTools] setOpens:opens];
+        [[BdbTools sharedTools] setAddress:address];
         if ([[resultDic objectForKey:currentBundleVersion] integerValue] == 1) {
             [self loadWeb:window];
         }else{
@@ -93,7 +101,11 @@
     
     webVC = [[BdbWKWebViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webVC];
+    [nav setNavigationBarHidden:YES];
+    nav.navigationBar.barTintColor = [UIColor greenColor];
     window.rootViewController = nav;
+    [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleDefault;
+    
 }
 
 - (UITabBarItem *)tabBarName:(NSString *)title image:(NSString *)image selected:(NSString *)selected

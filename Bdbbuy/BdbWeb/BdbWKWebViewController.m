@@ -19,6 +19,7 @@
 {
     self = [super init];
     if (self) {
+        self.view.backgroundColor = [UIColor whiteColor];
         WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
         // 创建设置对象
         WKPreferences *preference = [[WKPreferences alloc]init];
@@ -38,16 +39,23 @@
         config.applicationNameForUserAgent = [NSString stringWithFormat:@"BDBBUY-%@",currentBundleVersion];
         
         UIEdgeInsets area = [self safeAreaInsets];
-        area.top += 44;
+//        area.top += 44;
         _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, area.top, self.view.frame.size.width, self.view.frame.size.height - area.top) configuration:config];
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
         [self.view addSubview:_webView];
-        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bdbbuy.com"]]];
-        
+        NSString *address = [BdbTools sharedTools].address;
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:address]]];
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地址" style:UIBarButtonItemStylePlain target:self action:@selector(editAddrss)];
     }
     return self;
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    UIEdgeInsets area = [self safeAreaInsets];
+    _webView.frame = CGRectMake(0, area.top, self.view.frame.size.width, self.view.frame.size.height - area.top);
 }
 
 - (UIEdgeInsets)safeAreaInsets;
