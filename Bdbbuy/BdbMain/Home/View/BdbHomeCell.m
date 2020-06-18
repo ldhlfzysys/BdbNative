@@ -60,8 +60,10 @@
             make.edges.equalTo(self);
         }];
         [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.leading.trailing.equalTo(self);
-            make.height.width.equalTo(self.mas_width);
+            make.top.leading.trailing.equalTo(self).offset(5);
+            make.width.equalTo(self.mas_width).offset(-10);
+            make.height.equalTo(self.mas_width);
+//            make.left.equalTo(self).width.offset(10);
         }];
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_goodsImageView.mas_bottom).offset(2);
